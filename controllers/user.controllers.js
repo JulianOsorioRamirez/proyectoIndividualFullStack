@@ -3,7 +3,7 @@ const MongoClient = mongo.MongoClient;
 const url = "mongodb://127.0.0.1:27017/";
 const mongoose = require("mongoose");
 const UserModel = require("../models/userModels");
-
+var productID;
 const PDFDocument = require('pdfkit');
 
 const connection = require("../database/sqlDataBase");
@@ -160,18 +160,38 @@ const user = {
       // res.render('index');
       res.send("Vuelta a el index")
     },
+    shopView: (req, res) => {
+      // res.render('index');
+      res.send("ir a tienda")
+    },
     insertShopCar: (req, res) => {
-      loginEmail = req.body.userLog 
+      loginEmail = req.body.userLog;
+      numPedido = "";
+      console.log(loginEmail)
       let nameCorrect = `SELECT id FROM Usuarios where email = '${loginEmail}'`;
+
+      function generateRandomIdTask(num) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        const charactersLength = characters.length;
+        for (let i = 0; i < num; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+
+        // return result;
+        numPedido = result
+        
+        
+    }
+    generateRandomIdTask(7);
+    
 
       connection.query(nameCorrect, (err, rows) => {
         if (err) throw err;
         userId = rows[0].id
         console.log(userId)
-      
-      
-      numPedido = "N33344555"
-      total = 15
+
+      total = 30
 
       let insertQuery = `INSERT INTO CarritosDeCompra
          (
@@ -198,6 +218,16 @@ const user = {
     },
     insertShopProducs: (req, res) => {
       pants = req.body.pants1
+      userId = 2
+      cantidad = 3
+      
+      let nameCorrect = `SELECT id FROM CarritosDeCompra where fk_id_usuario = '${userId}'`;
+
+      connection.query(nameCorrect, (err, rows) => {
+        if (err) throw err;
+        carId = rows[0].id
+        console.log(carId)
+      })
 
      MongoClient.connect(url, function(err, db) {
         if (err) throw err;
@@ -207,13 +237,69 @@ const user = {
         var query = { "Nombre": pants };
         dbo.collection(coleccion).find(query).toArray(function(err, result) {
         if (err) throw err;
-        console.log(result._id);
-        res.send(result)
+        // console.log(result[0].Marca);
+        console.log(result[0].id)
+        productID = result[0].id
+        // res.send(result[0].Tallas[0].talla)
+        let insertQuery = `INSERT INTO Carritos_Productos
+         (
+          fk_id_carrito, fk_id_producto_mongo, cantidad
+         )
+         VALUES
+         (
+             ?, ?, ?
+         )`;
+         let query2 = mysql.format(insertQuery, [
+          carId,
+          productID,
+          cantidad
+          ]);
+
+          connection.query(query2, (err, data) => {
+            if (err) throw err;
+            console.log(data);
+            res.send("ok")
+          });
         db.close();
         });
     });
-    }
-    
+  },
+  productsHistory : (req, res) => {
+
+       
+    var dbName = "Pedidos"
+    var dbColection = "Historial De Pedidos"
+    var idUser = req.param('idUser')
+    var idProductos = ["PD11", "PD12", "PC11"]
+    var numPedido = req.param('numPedido')
+    console.log(idUser);
+    console.log(numPedido);
+
+
+ 
+
+    var dbDates = { 
+      "idUser" : idUser,
+      "idProductos": idProductos,
+      "FechaDePedido": "12-06-2022",
+      "numPedido": numPedido,
+      "Cantidad": "5",
+      "cuentaTotal" : "30€"
+    };
+
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db(dbName);
+      
+      dbo.collection(dbColection).insertOne(dbDates, function(err, res) {
+          if (err) throw err;
+          console.log("Documento insertado");
+          db.close();
+      });
+  });
+  
+  }
 }
+
 
 module.exports = user;
