@@ -200,7 +200,7 @@ body {
 /*TODO                   empiezo registro */
 
 .contenedorRegis {
-    display: inline;
+    display: none;
 }
 
 
@@ -638,6 +638,13 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
 }
+.botonReg:hover {background-color: #5e5e5e}
+
+.botonReg:active {
+  background-color: #6e6e6e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 .logFooter {
     position: absolute;
@@ -732,7 +739,7 @@ body {
 /*TODO                    Comienzo Log */
 
 .contLog {
-    display: block;
+    display: inline;
     background-color: #c7c2c2;
     position: absolute;
     width: 416px;
@@ -856,6 +863,13 @@ body {
     color: white;
     border: none;
     font-size: 20px;
+}
+.botonLog:hover {background-color: #818181}
+
+.botonLog:active {
+  background-color: #6d6d6d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 

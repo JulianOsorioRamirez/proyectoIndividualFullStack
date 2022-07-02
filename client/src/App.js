@@ -133,6 +133,9 @@ function App() {
             </div>
             <div class="inpBu" action="/login" method="post"><input class="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Enter your user log" required="" /><input class="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Enter your password log" required="" /><input class="botonLog" onClick={() => LogData()} id="botonLog" type="submit" value="Continue" /></div>
         </div>
+    </section><section class="textCentral">
+        <h1 class="travel"> DOBERMAN VINTAGE</h1>
+        <p class="travelp">Es un sitio de encuentro <br /> En pleno centro de madrid<br /> donde podras comprar la mejor ropa<br /> al puro estilo MADRID!!</p>
     </section>
     
    
