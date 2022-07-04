@@ -13,13 +13,28 @@ const bcrypt = require("bcrypt");
 let userId
 const user = {
     registrer : (req, res) => {
-    let nombre = req.body.name;
-    let apellidos = req.body.surname;
-    let email = req.body.email;
-    let contrasena = req.body.pass;
-    let contrasenaConf = req.body.passConf;
-    let telefono = req.body.phone;
-    let dni = req.body.dni;
+      nombre = req.body.name
+      console.log(nombre)
+      apellidos = req.body.unName
+      console.log(req.body.unName)
+      dni = req.body.dni
+      console.log(dni)
+      email = req.body.email
+      console.log(email)
+      contrasena = req.body.pass
+      console.log(contrasena)
+      contrasenaConf = req.body.passConf
+      console.log(contrasenaConf)
+      telefono = req.body.number
+      console.log(telefono)
+      
+    // let nombre = req.body.name;
+    // let apellidos = req.body.surname;
+    // let email = req.body.email;
+    // let contrasena = req.body.pass;
+    // let contrasenaConf = req.body.passConf;
+    // let telefono = req.body.phone;
+    // let dni = req.body.dni;
     const emailExp = new RegExp(/^([\d\w_\.-]+)@([\d\w\.-]+)\.([\w\.]{3})$/);
     const nameExp = new RegExp(/^([A-Za-z]{1,15})$/);
     const unNameExp = new RegExp(/^([A-Za-z]{1,15})$/);
@@ -38,8 +53,8 @@ const user = {
         contrasena != contrasenaConf ||
         !telfExp.test(telefono)
       ) {
-        console.log("campos incorrectos"); //renderizar una pagina de campos incorrectos
-        res.send("todo mal")
+        // console.log("campos incorrectos"); //renderizar una pagina de campos incorrectos
+        // res.send("todo mal")
       } else {
   
         bcrypt.hash(contrasena, 10, (err, palabraSecretaEncriptada) => {
@@ -68,7 +83,7 @@ const user = {
             ]);
             connection.query(query, (err, data) => {
               if (err) throw err;
-              console.log(data);
+              // console.log(data); 
               res.send("ok")
             });
           }
@@ -88,25 +103,28 @@ const user = {
        */
     
       loginEmail = req.body.userLog;
+      console.log(loginEmail)
       passLog = req.body.passLog;
       var userId;
-  
+      
+      
+
   
       /**
        * Comparamos las variables con el email y contraseña del administrador para que pueda modificar.
        */
   
   
-      // if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
-      //   res.render("admin");
-      // }
+      if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
+        res.render("admin");
+      }
   
   
       /**
        * Aqui comparamos si los datos introducidos por el usuario en el login se encuentran en la base de datos
        * para poder logearse.
        */
-      try {
+     
         
         let nameCorrect = `SELECT email,contrasena FROM Usuarios where email = '${loginEmail}'`;
 
@@ -122,7 +140,7 @@ const user = {
                 console.log("Usuario correcto");
                 console.log(result)
                 let selectQuery = "SELECT * FROM ?? WHERE ?? = ?";
-                // //`SELECT * FROM Usuarios WHERE email = ${loginEmail}`
+                
                 let query3 = mysql.format(selectQuery, [
                   "Usuarios",
                   "email",
@@ -142,20 +160,14 @@ const user = {
                   logTelefono = data[0].telefono;
                   console.log(userId)
                 });
-              } else if(contrasena == undefined){
-                res.send("email incorrecto")
-              }
+               }
             });
           });
         }else{
           console.log("datos incorrectos")
+          res.send("campos incorrectos")
         }
-      } catch (error) {
-        res.send("email o contraseña incorrectos")
-      }
-      
-  
-    },
+      },
     logOut: (req, res) => {
       // res.render('index');
       res.send("Vuelta a el index")
@@ -270,7 +282,7 @@ const user = {
     var dbName = "Pedidos"
     var dbColection = "Historial De Pedidos"
     var idUser = req.param('idUser')
-    var idProductos = ["PD11", "PD12", "PC11"]
+    var idProductos = ["PD16", "PD14"]
     var numPedido = req.param('numPedido')
     console.log(idUser);
     console.log(numPedido);
@@ -297,7 +309,6 @@ const user = {
           db.close();
       });
   });
-  
   }
 }
 
