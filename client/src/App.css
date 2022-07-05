@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Splash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Splash&family=The+Nautigal&display=swap');
 .App{
    
     text-align: center;
@@ -17,9 +19,11 @@
 
 .title {
     font-size: 2.4rem;
+    font-size: 100px;
     padding: 10rem 0 0 0;
     color: whitesmoke;
-    font-family: fantasy;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
     margin: 0 ;
 }
 .allProductsCont {
@@ -61,8 +65,11 @@
 }
 .producto_footer h1 {
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 3rem;
     color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
 }
 
 .producto_footer p {

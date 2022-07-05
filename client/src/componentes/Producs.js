@@ -69,7 +69,7 @@ function Producs () {
             </div>
         </div>
     </section>
-        <h1 className="title">Prendas de ropa</h1>
+        <h1 className="title">Prendas de Ropa</h1>
         <button id="homeBtn"> <Link to={"/bisuteria"}>Bisuteria</Link></button>
         <div className="allProductsCont">
         <div className="productos">
@@ -78,7 +78,7 @@ function Producs () {
               <img src={IMG} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Tyler T shirt </h1>
+                <h1>Tyler T shirt</h1>
                
                 <p className="price">17€</p>
             </div>
