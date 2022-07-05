@@ -53,9 +53,7 @@ const user = {
         contrasena != contrasenaConf ||
         !telfExp.test(telefono)
       ) {
-        res.json({
-          message: "Campos incorrectos"
-      });
+        
         
       } else {
   
@@ -90,7 +88,7 @@ const user = {
             });
           }
           res.json({
-            message: "Usuario Registrado"
+            estado: true
         });
   
         });

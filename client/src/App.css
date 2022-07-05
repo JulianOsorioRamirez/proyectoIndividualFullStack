@@ -20,6 +20,7 @@
     padding: 10rem 0 0 0;
     color: whitesmoke;
     font-family: fantasy;
+    margin: 0 ;
 }
 .allProductsCont {
     margin:0;
@@ -51,7 +52,9 @@
     border: 6px solid white
 }
 .producto_img img{
-    width: 100px;
+    margin-top: 1rem;
+    width: 180px;
+    height: 180px;
 }
 .producto_footer{
     padding: 1rem;
@@ -102,8 +105,11 @@
     order: 2;
     flex-grow: 0;
 }
+#añadirBtnb {
+    margin-bottom: 2rem;
+}
 
-.btn:active {
+.btn:active , #homeBtn {
     background-color: black;
     color: #c7c2c2;
 }

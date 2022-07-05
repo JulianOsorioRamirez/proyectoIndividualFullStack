@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import {Link} from "react-router-dom"
 import logo from "../componentes/images/dobermanLOGO.jpg"
-import Producs from "./Producs";
+// import Producs from "./Producs";
 
 
 
@@ -18,7 +18,9 @@ function Home() {
   const [sendNumber, setDataToNumber] = useState("");
   const [sendEmailLog, setDataToEmailLog] = useState("");
   const [sendPassLog, setDataToPassLog] = useState("");
-  const [message, setMessage] = useState("");
+  
+  
+
   
 
 
@@ -66,7 +68,7 @@ function Home() {
 
     fetch("registro", requestOptions)
       .then((response) => response.json())
-      .then((res) => setMessage(res.message));
+      
 
       
   };
@@ -78,12 +80,19 @@ function Home() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({userLog: sendEmailLog,
-                            passLog: sendPassConf})
+                            passLog: sendPassLog})
     };
 
     fetch("login", requestOptions)
       .then((response) => response.json())
-      .then((res) => setMessage(res.message));
+
+    //   if (test.style.display == 'inline') {
+    //     test.style.display = 'none';
+    //   } else {
+    //     test.style.display = 'inline'
+    //   }
+    
+      
   };
 
   return (
@@ -109,7 +118,6 @@ function Home() {
                 <div class="acountContenedor">
                     <div class="acountHead">
                         <h1 class="acountTextHead">Crea una cuenta</h1>
-                        <p>{message ? message : ""}</p>
                     </div>
                     <form class="acout" action="/registro" method="post">
                         <div class="nameSurnameBox">
@@ -156,10 +164,13 @@ function Home() {
         <div class="contLogBox">
             <div class="logBox">
                 <h1 class="logHTex">Acceder</h1>
-                <p>{message ? message : ""}</p>
+                
                 {/* <p class="logPText">Full access to in any of our products</p> */}
             </div>
-            <div class="inpBu" action="/login" method="post"><input class="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" /><input class="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input class="botonLog" onClick={() => LogData()} id="botonLog" type="submit" value="Acceder" /></div>
+            <div class="inpBu" action="/login" method="post">
+            <input class="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
+            <input class="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input class="botonLog" onClick={() => LogData()} id="botonLog" type="submit" value="Acceder" />
+            </div>
         </div>
     </section>
     <section class="textCentral">
