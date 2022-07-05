@@ -53,8 +53,10 @@ const user = {
         contrasena != contrasenaConf ||
         !telfExp.test(telefono)
       ) {
-        // console.log("campos incorrectos"); //renderizar una pagina de campos incorrectos
-        // res.send("todo mal")
+        res.json({
+          message: "Campos incorrectos"
+      });
+        
       } else {
   
         bcrypt.hash(contrasena, 10, (err, palabraSecretaEncriptada) => {
@@ -84,9 +86,12 @@ const user = {
             connection.query(query, (err, data) => {
               if (err) throw err;
               // console.log(data); 
-              res.send("ok")
+              
             });
           }
+          res.json({
+            message: "Usuario Registrado"
+        });
   
         });
   
@@ -115,9 +120,9 @@ const user = {
        */
   
   
-      if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
-        res.render("admin");
-      }
+      // if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
+      //   res.render("admin");
+      // }
   
   
       /**
@@ -128,7 +133,7 @@ const user = {
         
         let nameCorrect = `SELECT email,contrasena FROM Usuarios where email = '${loginEmail}'`;
 
-        if(nameCorrect != null){
+        
           connection.query(nameCorrect, (err, rows) => {
             if (err) throw err;
       
@@ -160,13 +165,14 @@ const user = {
                   logTelefono = data[0].telefono;
                   console.log(userId)
                 });
+                }else{
+                  res.json({
+                    message: "Campos incorrectos"
+                });
                }
             });
           });
-        }else{
-          console.log("datos incorrectos")
-          res.send("campos incorrectos")
-        }
+        
       },
     logOut: (req, res) => {
       // res.render('index');

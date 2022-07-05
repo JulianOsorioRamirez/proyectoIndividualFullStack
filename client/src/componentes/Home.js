@@ -1,6 +1,8 @@
 
-
 import React, { useState } from "react";
+import {Link} from "react-router-dom"
+import logo from "../componentes/images/dobermanLOGO.jpg"
+import Producs from "./Producs";
 
 
 
@@ -16,6 +18,8 @@ function Home() {
   const [sendNumber, setDataToNumber] = useState("");
   const [sendEmailLog, setDataToEmailLog] = useState("");
   const [sendPassLog, setDataToPassLog] = useState("");
+  const [message, setMessage] = useState("");
+  
 
 
  
@@ -62,7 +66,7 @@ function Home() {
 
     fetch("registro", requestOptions)
       .then((response) => response.json())
-      
+      .then((res) => setMessage(res.message));
 
       
   };
@@ -79,6 +83,7 @@ function Home() {
 
     fetch("login", requestOptions)
       .then((response) => response.json())
+      .then((res) => setMessage(res.message));
   };
 
   return (
@@ -87,8 +92,11 @@ function Home() {
     <link rel="stylesheet" href="/style.css" />
     <title>Pug </title>
     <nav class="nav">
-        <p class="home">Tienda</p>
-        <div class="login">
+    <div className="divShop">
+        <button id="shopBtn"> <Link to={"/producs"}>Tienda</Link></button>
+    {/* <input class="log"  id="log"  type="submit"  value="Tienda"/> */}
+    </div>
+  <div class="login">
              <div class="barra">
              <input class="log" onClick={() => mostrar1()} id="log"  type="submit"  value="Acceder" />
             <input class="sing" onClick={() => mostrar()} id="sing" type="submit" value="Registrarse" />
@@ -101,7 +109,7 @@ function Home() {
                 <div class="acountContenedor">
                     <div class="acountHead">
                         <h1 class="acountTextHead">Crea una cuenta</h1>
-                        
+                        <p>{message ? message : ""}</p>
                     </div>
                     <form class="acout" action="/registro" method="post">
                         <div class="nameSurnameBox">
@@ -148,13 +156,18 @@ function Home() {
         <div class="contLogBox">
             <div class="logBox">
                 <h1 class="logHTex">Acceder</h1>
+                <p>{message ? message : ""}</p>
                 {/* <p class="logPText">Full access to in any of our products</p> */}
             </div>
             <div class="inpBu" action="/login" method="post"><input class="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" /><input class="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input class="botonLog" onClick={() => LogData()} id="botonLog" type="submit" value="Acceder" /></div>
         </div>
-    </section><section class="textCentral">
+    </section>
+    <section class="textCentral">
         <h1 class="travel"> DOBERMAN VINTAGE</h1>
-        <p class="travelp">Es un sitio de encuentro <br /> En pleno centro de madrid<br /> donde podras comprar la mejor ropa<br /> al puro estilo MADRID!!</p>
+        <p class="travelp">Es un sitio de encuentro <br /> En pleno centro de madrid<br /> donde podras comprar la mejor ropa<br /> al puro estilo de la CAPITAL!!</p>
+    </section>
+    <section>
+    <img className="logoHome"src = {logo} alt=""/>
     </section>
     
    

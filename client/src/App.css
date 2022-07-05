@@ -36,6 +36,7 @@
     grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     gap: 3rem 1rem;
     box-sizing: border-box;
+    
 }
 .producto {
     display: flex;
@@ -44,6 +45,7 @@
     box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.2);
     border: 6px solid transparent;
     border-radius: 5px;
+    border: 2px solid whitesmoke;
 }
 .producto:hover{
     border: 6px solid white
@@ -58,8 +60,8 @@
     font-weight: 600;
     font-size: 1.5rem;
     color: whitesmoke;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
 .producto_footer p {
     font-weight: 700;
     color: whitesmoke;
@@ -85,6 +87,62 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.btn {
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+
+.btn:active {
+    background-color: black;
+    color: #c7c2c2;
+}
+#añadirBtn {
+    width: 25rem;
+}
+#homeBtn {
+    margin-top: 1rem;
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+    text-decoration: none;
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+#shopBtn{
+    /* margin-top: rem; */
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+    text-decoration: none;
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+
 
 .App-link {
   color: #61dafb;
@@ -111,18 +169,43 @@ body {
     background-size: cover;
 
 }
+.logoHome{
+    width: 30rem;
+    border: 5px solid gray;
+}
 
 /*TODO                        empiezo nav */
 .nav {
     box-sizing: border-box;
     position: absolute;
-    width: 1599px;
+    width: 100%;
     height: 73px;
     left: 0px;
     top: 0px;
     background: #484848;
     border-bottom: 1px solid rgba(102, 102, 102, 0.25);
     z-index: 1;
+    display: flex;
+    justify-content: space-between
+    
+}
+.logo{
+  width: 200px;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4.5px;
+}
+.divLogo {
+    margin-left: 5rem;
+}
+.divShop {
+margin-top: 1rem;
+margin-left: 45rem;
+}
+.divLogin {
+    margin-right: 5rem;
+    margin-top: 1rem;
 }
 
 .textNa {
@@ -801,6 +884,16 @@ body {
 /*TODO                    Comienzo Log */
 
 .contLog {
+    display: none;
+    background-color: #c7c2c2;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+.contLog2 {
     display: none;
     background-color: #c7c2c2;
     position: absolute;
