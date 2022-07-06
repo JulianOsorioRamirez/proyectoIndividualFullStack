@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import IMG from "../componentes/images/aros trenzados.png"
 import IMG2 from "../componentes/images/arosBrillantes.png"
@@ -16,6 +16,31 @@ import {Link} from "react-router-dom"
 function Bisuteria() {
   const [sendEmailLog, setDataToEmailLog] = useState("");
   const [sendPassLog, setDataToPassLog] = useState("");
+  const[sendIdProduc, setDataToIdProduc] = useState("");
+
+  const addProductB = (t) => {
+    let producName = document.getElementsByClassName("producName")[t].innerText
+    console.log(producName)
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({nameProduc : producName})
+    };
+    
+    fetch("serchIdProducB", requestOptions)
+      .then((response) => response.json())
+      .then((res)=> setDataToIdProduc(res))
+    }
+
+  useEffect(() => {
+    let infoLocal = JSON.parse(localStorage.getItem("CarritoDeCompra"))
+    console.log(infoLocal)
+    console.log(sendIdProduc)
+    infoLocal[0].Producto = sendIdProduc.productId
+    infoLocal[0].Precio = sendIdProduc.productPrice
+    localStorage.setItem("CarritoDeCompra",JSON.stringify(infoLocal))
+}, [sendIdProduc]);
   const LogData = () => {
     console.log(sendEmailLog);
     console.log(sendPassLog);
@@ -42,27 +67,27 @@ function Bisuteria() {
       
         <link rel="stylesheet" href="/style.css" />
         <title>Pug </title>
-        <nav class="nav">
+        <nav className="nav">
           <div className="divLogo">
           <img className="logo"src = {logo} alt=""/>
           </div>
           <div>
           <button id="homeBtn"> <Link to={"/"}>Home</Link></button>
           </div>
-        <div class="divLogin">
-                <input class="log"  id="log" onClick={() => accesCont()} type="submit"  value="Acceder" />
-                <input class="sing" id="sing" type="submit" value="Carrito" />
+        <div className="divLogin">
+                <input className="log"  id="log" onClick={() => accesCont()} type="submit"  value="Acceder" />
+                <input className="sing" id="sing" type="submit" value="Carrito" />
             </div>
         </nav>
-        <section class="contLog2" id="contLog2">
-        <div class="contLogBox">
-            <div class="logBox">
-                <h1 class="logHTex">Acceder</h1>
+        <section className="contLog2" id="contLog2">
+        <div className="contLogBox">
+            <div className="logBox">
+                <h1 className="logHTex">Acceder</h1>
             </div>
-            <div class="inpBu" action="/login" method="post">
-            <input class="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
-            <input class="passLog"  id="passLog" onChange={(e) => setDataToPassLog(e.target.value)} type="password" name="passLog" placeholder="Introduce tu contraseña" required="" />
-            <input class="botonLog"  id="botonLog" onClick={() => LogData()} type="submit" value="Acceder" />
+            <div className="inpBu" action="/login" method="post">
+            <input className="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
+            <input className="passLog"  id="passLog" onChange={(e) => setDataToPassLog(e.target.value)} type="password" name="passLog" placeholder="Introduce tu contraseña" required="" />
+            <input className="botonLog"  id="botonLog" onClick={() => LogData()} type="submit" value="Acceder" />
             </div>
         </div>
     </section>
@@ -75,7 +100,7 @@ function Bisuteria() {
               <img src={IMG} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Aros Trenzados</h1>
+                <h1 className="producName">Aros Trenzados</h1>
                
                 <p className="price">5€</p>
             </div>
@@ -87,7 +112,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb"className = "btn">
+               <button id ="0"  onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -104,7 +129,7 @@ function Bisuteria() {
               <img src={IMG2} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Aros brillantes</h1>
+                <h1 className="producName">Aros brillantes</h1>
                 
                 <p className="price">3€</p>
             </div>
@@ -116,7 +141,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb"className = "btn">
+               <button id ="1" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -135,7 +160,7 @@ function Bisuteria() {
               <img src={IMG3} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Cadenas trenzadas</h1>
+                <h1 className="producName">Cadenas trenzadas</h1>
                 
                 <p className="price">5€</p>
             </div>
@@ -147,7 +172,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb" className = "btn">
+               <button id ="2" onClick={(e) => addProductB(e.target.id)}  className = "btn">
                    Añadir al carrito
                </button>
                
@@ -166,7 +191,7 @@ function Bisuteria() {
               <img src={IMG4} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Aros de corazon</h1>
+                <h1 className="producName">Aros de corazon</h1>
                 
                 <p className="price">5€</p>
             </div>
@@ -178,7 +203,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button  id ="añadirBtnb"className = "btn">
+               <button  id ="3" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -193,7 +218,7 @@ function Bisuteria() {
               <img src={IMG5} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Colgante de cruz</h1>
+                <h1 className="producName">Colgante de cruz</h1>
                
                 <p className="price">3€</p>
             </div>
@@ -205,7 +230,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb" className = "btn">
+               <button id ="4"onClick={(e) => addProductB(e.target.id)}  className = "btn">
                    Añadir al carrito
                </button>
                
@@ -221,7 +246,7 @@ function Bisuteria() {
               <img src={IMG6} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Colgante guante de box</h1>
+                <h1 className="producName">Colgante guante de box</h1>
                 
                 <p className="price">3€</p>
             </div>
@@ -233,7 +258,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb" className = "btn">
+               <button id ="5" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -250,7 +275,7 @@ function Bisuteria() {
               <img src={IMG7} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Colgante Mano de Fatima</h1>
+                <h1 className="producName">Colgante Mano de Fatima</h1>
                 
                 <p className="price">5€</p>
             </div>
@@ -262,7 +287,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb" className = "btn">
+               <button id ="6" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -278,7 +303,7 @@ function Bisuteria() {
               <img src={IMG8} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Sello Azteca</h1>
+                <h1 className="producName">Sello Azteca</h1>
                 
                 <p className="price">7€</p>
             </div>
@@ -290,7 +315,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb" className = "btn">
+               <button id ="7" onClick={(e) => addProductB(e.target.id)}  className = "btn">
                    Añadir al carrito
                </button>
                
@@ -306,7 +331,7 @@ function Bisuteria() {
               <img src={IMG9} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Sello Mano de Fatima</h1>
+                <h1 className="producName">Sello Mano de Fatima</h1>
                 
                 <p className="price">7€</p>
             </div>
@@ -318,7 +343,7 @@ function Bisuteria() {
                </button>
             </div>
             <div className="button">
-               <button id ="añadirBtnb" className = "btn">
+               <button id ="8" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                

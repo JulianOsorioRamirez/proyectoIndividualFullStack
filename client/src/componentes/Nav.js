@@ -3,13 +3,13 @@ import './App.css';
 
 function nav() {
     return (
-        <nav class="nav">
-        <p class="home">home</p>
-        <p class="home">Tienda</p>
-        <div class="login">
-             <div class="barra">
-             {/* <input class="log" id="log"  type="submit"  value="Acceder" /> */}
-            <input class="sing" id="sing" type="submit" value="Carrito de la compra"/>
+        <nav className="nav">
+        <p className="home">home</p>
+        <p className="home">Tienda</p>
+        <div className="login">
+             <div className="barra">
+             {/* <input className="log" id="log"  type="submit"  value="Acceder" /> */}
+            <input className="sing" id="sing" type="submit" value="Carrito de la compra"/>
             </div>
         </div>
     </nav>

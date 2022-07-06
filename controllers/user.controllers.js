@@ -87,9 +87,7 @@ const user = {
               
             });
           }
-          res.json({
-            estado: true
-        });
+         
   
         });
   
@@ -129,45 +127,19 @@ const user = {
        */
      
         
-        let nameCorrect = `SELECT email,contrasena FROM Usuarios where email = '${loginEmail}'`;
+        let nameCorrect = `SELECT * FROM Usuarios where email = '${loginEmail}'`;
 
         
           connection.query(nameCorrect, (err, rows) => {
             if (err) throw err;
       
             console.log('Usuario: \n', rows);
+
             bcrypt.compare(passLog, rows[0].contrasena).then(function (result) {
               // result == true
-              
-              if (result && rows[0].email == loginEmail) {
-                console.log("Usuario correcto");
-                console.log(result)
-                let selectQuery = "SELECT * FROM ?? WHERE ?? = ?";
-                
-                let query3 = mysql.format(selectQuery, [
-                  "Usuarios",
-                  "email",
-                  loginEmail,
-                ]);
-                console.log("selectQuery" + selectQuery);
-                console.log("query3" + query3);
-                res.send("Usuario y contraseña correcta")
-                connection.query(query3, (err, data) => {
-                  if (err) throw err;
-                  // console.log(data);
-                  var userId = data[0].id
-                  logNombre = data[0].nombre;
-                  logApellido = data[0].apellido;
-                  logDni = data[0].dni;
-                  logEmail = data[0].email;
-                  logTelefono = data[0].telefono;
-                  console.log(userId)
-                });
-                }else{
-                  res.json({
-                    message: "Campos incorrectos"
-                });
-               }
+              console.log(result)
+              console.log(rows[0].id)
+              res.json({id : rows[0].id})
             });
           });
         
@@ -179,6 +151,47 @@ const user = {
     shopView: (req, res) => {
       // res.render('index');
       res.send("ir a tienda")
+    },
+    serchIdProduc:(req, res) => {
+       
+       //Query simple  
+    MongoClient.connect(url, function(err, db) {
+      nameProduct = req.body.nameProduc
+      console.log(nameProduct)
+      const mydb = "Productos";
+      const coleccion = "PrendasDeRopa";
+      if (err) throw err;
+      var dbo = db.db(mydb);
+      dbo.collection(coleccion).find({"Nombre": nameProduct}).toArray( function(err, result) {
+      if (err) throw err;
+       console.log(result[0].id);
+       productId = result[0].id
+       productPrice = result[0].Precio
+       res.json({productId :result[0].id,
+                productPrice: result[0].Precio })
+      db.close();
+      });
+  });
+    },
+    serchIdProducB:(req, res) => {
+          //Query simple  
+    MongoClient.connect(url, function(err, db) {
+      nameProduct = req.body.nameProduc
+      console.log(nameProduct)
+      const mydb = "Productos";
+      const coleccion = "Bisuteria";
+      if (err) throw err;
+      var dbo = db.db(mydb);
+      dbo.collection(coleccion).find({"Nombre": nameProduct}).toArray( function(err, result) {
+      if (err) throw err;
+       console.log(result[0].id);
+       productId = result[0].id
+       productPrice = result[0].Precio
+       res.json({productId :result[0].id,
+                productPrice: result[0].Precio })
+      db.close();
+      });
+  });
     },
     insertShopCar: (req, res) => {
       loginEmail = req.body.userLog;

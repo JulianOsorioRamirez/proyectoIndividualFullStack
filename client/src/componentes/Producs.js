@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import IMG from "../componentes/images/tyler.jpg"
 import IMG2 from "../componentes/images/chulosykinkis.jpg"
@@ -16,8 +16,41 @@ import {Link} from "react-router-dom"
 
 
 function Producs () {
+  
+
   const [sendEmailLog, setDataToEmailLog] = useState("");
   const [sendPassLog, setDataToPassLog] = useState("");
+  // const [sendIdUser, setDataIdUser] = useState("");
+  const[sendIdProduc, setDataToIdProduc] = useState("");
+
+  const addProduct = (t) => {
+    let producName = document.getElementsByClassName("producName")[t].innerText
+    console.log(producName)
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({nameProduc : producName})
+    };
+    
+    fetch("serchIdProduc", requestOptions)
+      .then((response) => response.json())
+      .then((res)=> setDataToIdProduc(res))
+      
+  }
+
+  useEffect(() => {
+    let infoLocal = JSON.parse(localStorage.getItem("CarritoDeCompra"))
+    console.log(infoLocal)
+    console.log(sendIdProduc)
+    infoLocal[0].Producto = sendIdProduc.productId
+    infoLocal[0].Precio = sendIdProduc.productPrice
+    localStorage.setItem("CarritoDeCompra",JSON.stringify(infoLocal))
+}, [sendIdProduc]);
+ 
+ 
+    
+ 
   const LogData = () => {
     console.log(sendEmailLog);
     console.log(sendPassLog);
@@ -45,27 +78,27 @@ function Producs () {
       
         <link rel="stylesheet" href="/style.css" />
         <title>Pug </title>
-        <nav class="nav">
+        <nav className="nav">
           <div className="divLogo">
           <img className="logo"src = {logo} alt=""/>
           </div>
           <div>
           <button id="homeBtn"> <Link to={"/"}>Home</Link></button>
           </div>
-        <div class="divLogin">
-                <input class="log"  id="log" onClick={() => accesCont()} type="submit"  value="Acceder" />
-                <input class="sing" id="sing" type="submit" value="Carrito" />
+        <div className="divLogin">
+                <input className="log"  id="log" onClick={() => accesCont()} type="submit"  value="Acceder" />
+                <input className="sing" id="sing" type="submit" value="Carrito" />
             </div>
         </nav>
-        <section class="contLog2" id="contLog2">
-        <div class="contLogBox">
-            <div class="logBox">
-                <h1 class="logHTex">Acceder</h1>
+        <section className="contLog2" id="contLog2">
+        <div className="contLogBox">
+            <div className="logBox">
+                <h1 className="logHTex">Acceder</h1>
             </div>
-            <div class="inpBu" action="/login" method="post">
-            <input class="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
-            <input class="passLog"  id="passLog" onChange={(e) => setDataToPassLog(e.target.value)} type="password" name="passLog" placeholder="Introduce tu contraseña" required="" />
-            <input class="botonLog"  id="botonLog" onClick={() => LogData()} type="submit" value="Acceder" />
+            <div className="inpBu" action="/login" method="post">
+            <input className="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
+            <input className="passLog"  id="passLog" onChange={(e) => setDataToPassLog(e.target.value)} type="password" name="passLog" placeholder="Introduce tu contraseña" required="" />
+            <input className="botonLog"  id="botonLog" onClick={() => LogData()} type="submit" value="Acceder" />
             </div>
         </div>
     </section>
@@ -78,7 +111,7 @@ function Producs () {
               <img src={IMG} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Tyler T shirt</h1>
+                <h1 className="producName">Tyler T shirt</h1>
                
                 <p className="price">17€</p>
             </div>
@@ -93,12 +126,9 @@ function Producs () {
                <button className = "btn">
                   XL
                </button>
-               
-               
-               
               </div>
             <div className="button">
-               <button id ="añadirBtn"className = "btn">
+               <button id ="0" onClick={(e) => addProduct(e.target.id)}className = "btn">
                    Añadir al carrito
                </button>
                
@@ -115,7 +145,7 @@ function Producs () {
               <img src={IMG2} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>chulos y castizos</h1>
+                <h1 className="producName">chulos y castizos</h1>
                 
                 <p className="price">17€</p>
             </div>
@@ -135,7 +165,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button id ="añadirBtn"className = "btn">
+               <button id  ="1" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -154,7 +184,7 @@ function Producs () {
               <img src={IMG3} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>kinkis Clasic</h1>
+                <h1 className="producName" >kinkis Clasic</h1>
                 
                 <p className="price">17€</p>
             </div>
@@ -174,7 +204,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button id ="añadirBtn" className = "btn">
+               <button id ="2" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -193,7 +223,7 @@ function Producs () {
               <img src={IMG4} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Kinkis Lakers</h1>
+                <h1 className="producName">Kinkis Lakers</h1>
                 
                 <p className="price">17€</p>
             </div>
@@ -213,7 +243,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button  id ="añadirBtn"className = "btn">
+               <button  id ="3" onClick={(e) => addProduct(e.target.id)}className = "btn">
                    Añadir al carrito
                </button>
                
@@ -228,7 +258,7 @@ function Producs () {
               <img src={IMG5} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Sudadera Madriz</h1>
+                <h1 className="producName">Sudadera Madriz</h1>
                
                 <p className="price">17€</p>
             </div>
@@ -248,7 +278,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button id ="añadirBtn" className = "btn">
+               <button id ="4" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -264,7 +294,7 @@ function Producs () {
               <img src={IMG6} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Champions T shirt</h1>
+                <h1 className="producName">Champions T shirt</h1>
                 
                 <p className="price">17€</p>
             </div>
@@ -284,7 +314,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button id ="añadirBtn" className = "btn">
+               <button id ="5" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -301,7 +331,7 @@ function Producs () {
               <img src={IMG7} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Amor De Barrio</h1>
+                <h1 className="producName">Amor De Barrio</h1>
                 
                 <p className="price">17€</p>
             </div>
@@ -321,7 +351,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button id ="añadirBtn" className = "btn">
+               <button id ="6" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -337,7 +367,7 @@ function Producs () {
               <img src={IMG8} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Kinkis Graff</h1>
+                <h1 className="producName">Kinkis Graff</h1>
                 
                 <p className="price">17€</p>
             </div>
@@ -357,7 +387,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button id ="añadirBtn" className = "btn">
+               <button id ="7" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                
@@ -373,7 +403,7 @@ function Producs () {
               <img src={IMG9} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1>Bañador Madriz</h1>
+                <h1 className="producName">Bañador Madriz</h1>
                 
                 <p className="price">15€</p>
             </div>
@@ -393,7 +423,7 @@ function Producs () {
                
               </div>
             <div className="button">
-               <button id ="añadirBtn" className = "btn">
+               <button id ="8" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
                </button>
                

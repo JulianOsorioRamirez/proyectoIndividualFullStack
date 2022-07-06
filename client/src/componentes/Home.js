@@ -1,14 +1,15 @@
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {Link} from "react-router-dom"
 import logo from "../componentes/images/dobermanLOGO.jpg"
+import {useNavigate} from "react-router-dom"
 // import Producs from "./Producs";
 
 
 
 function Home() {
   // const [message, setMessage] = useState("");
-  
+  const navigate = useNavigate()
   const [sendName, setDataToName] = useState("");
   const [sendUnName, setDataToUname] = useState("");
   const [sendDni, setDataToDni] = useState("");
@@ -18,8 +19,20 @@ function Home() {
   const [sendNumber, setDataToNumber] = useState("");
   const [sendEmailLog, setDataToEmailLog] = useState("");
   const [sendPassLog, setDataToPassLog] = useState("");
+  const [sendIdUser, setDataIdUser] = useState("");
   
-  
+
+  useEffect(() => {
+    if (sendIdUser){
+        let carritoDeCompra = [{
+            "id": sendIdUser,
+            "Producto": "",
+            "Talla": "",
+            "Precio": ""
+        }]
+        localStorage.setItem('CarritoDeCompra', JSON.stringify(carritoDeCompra));
+    } 
+}, [sendIdUser]);
 
   
 
@@ -69,6 +82,8 @@ function Home() {
     fetch("registro", requestOptions)
       .then((response) => response.json())
       
+      
+      
 
       
   };
@@ -85,6 +100,19 @@ function Home() {
 
     fetch("login", requestOptions)
       .then((response) => response.json())
+      .then((res)=> setDataIdUser(res.id))
+      if(sendIdUser){
+        navigate("/homeUserLog")
+      }
+      
+  }  
+      
+      
+      
+      
+      
+
+      
 
     //   if (test.style.display == 'inline') {
     //     test.style.display = 'none';
@@ -93,139 +121,93 @@ function Home() {
     //   }
     
       
-  };
+ 
 
   return (
     <div className="Home">
       
     <link rel="stylesheet" href="/style.css" />
     <title>Pug </title>
-    <nav class="nav">
+    <nav className="nav">
     <div className="divShop">
         <button id="shopBtn"> <Link to={"/producs"}>Tienda</Link></button>
-    {/* <input class="log"  id="log"  type="submit"  value="Tienda"/> */}
+    {/* <input className="log"  id="log"  type="submit"  value="Tienda"/> */}
     </div>
-  <div class="login">
-             <div class="barra">
-             <input class="log" onClick={() => mostrar1()} id="log"  type="submit"  value="Acceder" />
-            <input class="sing" onClick={() => mostrar()} id="sing" type="submit" value="Registrarse" />
+  <div className="login">
+             <div className="barra">
+             <input className="log" onClick={() => mostrar1()} id="log"  type="submit"  value="Acceder" />
+            <input className="sing" onClick={() => mostrar()} id="sing" type="submit" value="Registrarse" />
             </div>
         </div>
     </nav>
-    <div class="contenedorRegis" id="contenedorRegis">
-        <div class="acountCreate">
-            <div class="acountBox">
-                <div class="acountContenedor">
-                    <div class="acountHead">
-                        <h1 class="acountTextHead">Crea una cuenta</h1>
+    <div className="contenedorRegis" id="contenedorRegis">
+        <div className="acountCreate">
+            <div className="acountBox">
+                <div className="acountContenedor">
+                    <div className="acountHead">
+                        <h1 className="acountTextHead">Crea una cuenta</h1>
                     </div>
-                    <form class="acout" action="/registro" method="post">
-                        <div class="nameSurnameBox">
-                            <div class="nameBox">
-                                <p class="nameText"> Nombre</p><input class="name" id="name" onChange={(e) => setDataToName(e.target.value)} type="text" name="name" required="" />
+                    <form className="acout" action="/registro" method="post">
+                        <div className="nameSurnameBox">
+                            <div className="nameBox">
+                                <p className="nameText"> Nombre</p><input className="name" id="name" onChange={(e) => setDataToName(e.target.value)} type="text" name="name" required="" />
                             </div>
-                            <div class="surnameBox">
-                                <p class="surnameText">Apellido</p><input class="surname" id="surname"  onChange={(e) => setDataToUname(e.target.value)} type="text" name="surname" required="" />
-                            </div>
-                        </div>
-                        <div class="dniPhoneBox">
-                            <div class="dniBox">
-                                <p class="dniText">D.N.I</p><input class="dni" id="dni" onChange={(e) => setDataToDni (e.target.value)} type="text" name="dni" required="" />
-                            </div>
-                            <div class="phoneBox">
-                                <p class="phoneText">Telefono</p><input class="phone" id="phone" onChange={(e) => setDataToNumber (e.target.value)} type="text" name="phone" required="" />
+                            <div className="surnameBox">
+                                <p className="surnameText">Apellido</p><input className="surname" id="surname"  onChange={(e) => setDataToUname(e.target.value)} type="text" name="surname" required="" />
                             </div>
                         </div>
-                        <div class="emailBox">
-                            <p class="emailText">Email de Acceso</p><input class="email" id="email" onChange={(e) => setDataToEmail (e.target.value)} type="email" name="email" required="" />
-                        </div>
-                        <div class="passConfBox">
-                            <div class="passBox" name="passText">
-                                <p class="passText">Contraseña</p><input class="pass" id="pass"  onChange={(e) => setDataToPass (e.target.value)} type="password" name="pass" required="" />
+                        <div className="dniPhoneBox">
+                            <div className="dniBox">
+                                <p className="dniText">D.N.I</p><input className="dni" id="dni" onChange={(e) => setDataToDni (e.target.value)} type="text" name="dni" required="" />
                             </div>
-                            <div class="confBox">
-                                <p class="confPassText">Confirma tu contraseña</p><input class="passConf" id="passConf" onChange={(e) => setDataToConfPass (e.target.value)} type="password" name="passConf" required="" />
+                            <div className="phoneBox">
+                                <p className="phoneText">Telefono</p><input className="phone" id="phone" onChange={(e) => setDataToNumber (e.target.value)} type="text" name="phone" required="" />
                             </div>
                         </div>
-                        <div class="moreText">
-                            <p class="textVali">La contraseña necesita un minimo de 8 caracteres, una letra masyuscula, un numero y un caracter especial</p>
-                            <div class="chec"><input class="checkPass" id="checkPass" type="checkbox" name="checkPass" />
-                                <p class="checText">Ver contraseña</p>
+                        <div className="emailBox">
+                            <p className="emailText">Email de Acceso</p><input className="email" id="email" onChange={(e) => setDataToEmail (e.target.value)} type="email" name="email" required="" />
+                        </div>
+                        <div className="passConfBox">
+                            <div className="passBox" name="passText">
+                                <p className="passText">Contraseña</p><input className="pass" id="pass"  onChange={(e) => setDataToPass (e.target.value)} type="password" name="pass" required="" />
+                            </div>
+                            <div className="confBox">
+                                <p className="confPassText">Confirma tu contraseña</p><input className="passConf" id="passConf" onChange={(e) => setDataToConfPass (e.target.value)} type="password" name="passConf" required="" />
                             </div>
                         </div>
-                        <div class="botonFormReg"><input class="botonReg" type="submit" onClick={() => sendData()} value="Crear Cuenta" /></div>
+                        <div className="moreText">
+                            <p className="textVali">La contraseña necesita un minimo de 8 caracteres, una letra masyuscula, un numero y un caracter especial</p>
+                            <div className="chec"><input className="checkPass" id="checkPass" type="checkbox" name="checkPass" />
+                                <p className="checText">Ver contraseña</p>
+                            </div>
+                        </div>
+                        <div className="botonFormReg"><input className="botonReg" type="submit" onClick={() => sendData()} value="Crear Cuenta" /></div>
                     </form>
                 </div>
             </div>
             
         </div>
     </div>
-    <section class="contLog" id="contLog">
-        <div class="contLogBox">
-            <div class="logBox">
-                <h1 class="logHTex">Acceder</h1>
+    <section className="contLog" id="contLog">
+        <div className="contLogBox">
+            <div className="logBox">
+                <h1 className="logHTex">Acceder</h1>
                 
-                {/* <p class="logPText">Full access to in any of our products</p> */}
+                {/* <p className="logPText">Full access to in any of our products</p> */}
             </div>
-            <div class="inpBu" action="/login" method="post">
-            <input class="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
-            <input class="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input class="botonLog" onClick={() => LogData()} id="botonLog" type="submit" value="Acceder" />
+            <div className="inpBu" action="/login" method="post">
+            <input className="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
+            <input className="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input className="botonLog" onClick={() => LogData()} id="botonLog" type="submit" value="Acceder" />
             </div>
         </div>
     </section>
-    <section class="textCentral">
-        <h1 class="travel"> DOBERMAN VINTAGE</h1>
-        <p class="travelp">Es un sitio de encuentro <br /> En pleno centro de madrid<br /> donde podras comprar la mejor ropa<br /> al puro estilo de la CAPITAL!!</p>
+    <section className="textCentral">
+        <h1 className="travel"> DOBERMAN VINTAGE</h1>
+        <p className="travelp">Es un sitio de encuentro <br /> En pleno centro de madrid<br /> donde podras comprar la mejor ropa<br /> al puro estilo de la CAPITAL!!!</p>
     </section>
     <section>
     <img className="logoHome"src = {logo} alt=""/>
     </section>
-    
-   
-
-     {/* <form id="form">
-            <div class="contenedor1">
-                <div class="izquierda">
-                 <h1>{message ? message : "registro"}</h1>
-                    <label for="">Nombre<input id="name" onChange={(e) => setDataToName(e.target.value)} name="name" type="name" placeholder="Inserte su nombre aquí" 
-                        required />
-                        <span>*</span> </label>
-                    <p id="parrafoNombre"> </p>
-                    <label for="">apellido<input name="unName" onChange={(e) => setDataToUname(e.target.value)} id="apellido" type="name"
-                            placeholder="Inserte su primer apellido aquí" required /><span>*</span></label>
-                    <p id="parrafo1Apellido"></p>
-                    <label for="">DNI<input type="text" id="dni" onChange={(e) => setDataToDni (e.target.value)} placeholder="Inserte su DNI con letra"
-                            required /><span>*</span></label>
-                    <p id="parrafoDni"> </p>
-                    <label for="">Email<input type="email" id="email" onChange={(e) => setDataToEmail (e.target.value)} pattern=".+@tutsplus.com|.+@envato.com" placeholder="Inserte su dirección de email aquí"
-                            required /><span>*</span> </label>
-                    <p id="parrafoEmail"> </p>
-                    <label for="">Password<input type="password" onChange={(e) => setDataToPass (e.target.value)}id="passFr" placeholder="Inserte su contraseña aquí"
-                            required /><span>*</span> </label>
-                    <p id="parrafoPassword"> </p>
-                    <label for="">Password<input type="password" onChange={(e) => setDataToConfPass (e.target.value)} id="passConf" placeholder="Inserte su contraseña aquí"
-                        required /><span>*</span> </label>
-                    <p id="parrafoPassword"> </p>
-                    <label for="">Telefono<input type="number" onChange={(e) => setDataToNumber (e.target.value)} id="telefono" placeholder="Inserte su telefono aquí"
-                        required /><span>*</span> </label>
-                    <p id="parrafoPassword"> </p>
-                    </div>
-                    <div>
-                    <label for="">email<input id="name" onChange={(e) => setDataToEmailLog(e.target.value)} name="name" type="name" placeholder="Inserte su email aquí" 
-                        required />
-                        <span>*</span> </label>
-                        <label for="">password<input id="name" onChange={(e) => setDataToPassLog(e.target.value)} name="name" type="name" placeholder="Inserte su contraseña aquí" 
-                        required />
-                        <span>*</span> </label>
-                    </div>
-                
-               </div>
-        </form>
-        
-        
-        <button id="registrarUser" onClick={() => sendData()} class="submitBtn" type="submit">Registrarse</button>
-        <button id="LogUser" onClick={() => LogData()} class="submitBtn" type="submit">Log in</button>  */}
-
     </div>
   );
 }
