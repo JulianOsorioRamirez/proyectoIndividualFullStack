@@ -3,6 +3,7 @@ import React, { useState,useEffect } from "react";
 
 
 function BtnsR () {
+  
     return(
         <div className ="buttonsTalla">
             <button className = "btn">

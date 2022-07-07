@@ -1,14 +1,14 @@
 import React, { useState,useEffect } from "react";
 import BtnsR from "./ComponenteBtnR" 
-// import IMG from "../componentes/images/tyler.jpg"
-// import IMG2 from "../componentes/images/chulosykinkis.jpg"
-// import IMG3 from "../componentes/images/classicKinkis.jpg"
-// import IMG4 from "../componentes/images/Laker.jpg"
-// import IMG5 from "../componentes/images/sudaderaMadriz.jpg"
-// import IMG6 from "../componentes/images/champions.jpg"
-// import IMG7 from "../componentes/images/amorDeBarrio.jpg"
-// import IMG8 from "../componentes/images/kinkisGraf.jpg"
-// import IMG9 from "../componentes/images/pantalonKinkis.jpg"
+// import IMG0 from "../componentes/images/tyler.jpg"
+// import IMG1 from "../componentes/images/chulosykinkis.jpg"
+// import IMG2 from "../componentes/images/classicKinkis.jpg"
+// import IMG3 from "../componentes/images/Laker.jpg"
+// import IMG4 from "../componentes/images/sudaderaMadriz.jpg"
+// import IMG5 from "../componentes/images/champions.jpg"
+// import IMG6 from "../componentes/images/amorDeBarrio.jpg"
+// import IMG7 from "../componentes/images/kinkisGraf.jpg"
+// import IMG8 from "../componentes/images/pantalonKinkis.jpg"
 import logo from "../componentes/images/dobermanLOGO.jpg"
 import {Link} from "react-router-dom"
 
@@ -34,30 +34,30 @@ useEffect(()=>{
     }
 },[sendIdProduc]);
 
-  const addProduct = (t) => {
-    let producName = document.getElementsByClassName("producName")[t].innerText
-    console.log(producName)
+  // const addProduct = (t) => {
+  //   let producName = document.getElementsByClassName("producName")[t].innerText
+  //   console.log(producName)
 
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({nameProduc : producName})
-    };
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({nameProduc : producName})
+  //   };
     
-    fetch("serchIdProduc", requestOptions)
-      .then((response) => response.json())
-      .then((res)=> setDataToIdProduc(res))
+  //   fetch("serchIdProduc", requestOptions)
+  //     .then((response) => response.json())
+  //     .then((res)=> setDataToIdProduc(res))
       
-  }
+  // }
 
-  useEffect(() => {
-    let infoLocal = JSON.parse(localStorage.getItem("CarritoDeCompra"))
-    console.log(infoLocal)
-    console.log(sendIdProduc)
-    infoLocal[0].Producto = sendIdProduc.productId
-    infoLocal[0].Precio = sendIdProduc.productPrice
-    localStorage.setItem("CarritoDeCompra",JSON.stringify(infoLocal))
-}, [sendIdProduc]);
+//   useEffect(() => {
+//     let infoLocal = JSON.parse(localStorage.getItem("CarritoDeCompra"))
+//     console.log(infoLocal)
+//     console.log(sendIdProduc)
+//     infoLocal[0].Producto = sendIdProduc.productId
+//     infoLocal[0].Precio = sendIdProduc.productPrice
+//     localStorage.setItem("CarritoDeCompra",JSON.stringify(infoLocal))
+// }, [sendIdProduc]);
  
  
     
@@ -83,6 +83,7 @@ useEffect(()=>{
       test.style.display = 'block'
     }
   }
+    
 
     return (
         <div className="ProdIndex">
@@ -116,10 +117,11 @@ useEffect(()=>{
         <h1 className="title">Prendas de Ropa</h1>
         <button id="homeBtn"> <Link to={"/bisuteria"}>Bisuteria</Link></button>
         <div className="allProductsCont">
-        {sendIdProduc ? sendIdProduc.map((producto)=> <div className="productos">
+        {sendIdProduc ? sendIdProduc.map((producto,i)=> <div className="productos" key={i}>
           <div className ="producto">
             <div className = "producto_img">
-              <img src={"./images/amorDeBarrio.jpg"} alt=""/>
+              <img src={producto.img} alt=""/>
+              {/* <p>{producto.img}</p> */}
             </div>
             <div className="producto_footer">
                 <h1 className="producName">{producto.Nombre}</h1>
@@ -128,7 +130,7 @@ useEffect(()=>{
             </div>
             <BtnsR/>
             <div className="button">
-               <button id ="0" onClick={(e) => addProduct(e.target.id)}className = "btn">
+               <button id ="0" className = "btn">
                    Añadir al carrito
                </button>
                
@@ -138,6 +140,7 @@ useEffect(()=>{
              </div>
             </div>
         </div> ):""} 
+        
         </div>
       </div>
     );

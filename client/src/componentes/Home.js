@@ -21,6 +21,9 @@ function Home() {
   const [sendPassLog, setDataToPassLog] = useState("");
   const [sendIdUser, setDataIdUser] = useState("");
   const[sendIdProduc, setDataToIdProduc] = useState("");
+  const[messageError, setMessegeError] = useState("");
+
+
   
 
   useEffect(() => {
@@ -89,6 +92,18 @@ useEffect(() => {
 
     fetch("registro", requestOptions)
       .then((response) => response.json())
+      .then((res) =>{
+        console.log(res)
+        if(res.messege == "ok"){
+          let test = document.getElementById('contLog');
+          test.style.display = 'none'
+        }else{
+          setMessegeError("correo ya registrado")
+        }
+      })
+      
+
+
       
       
       
@@ -158,6 +173,7 @@ useEffect(() => {
                     <form className="acout" action="/registro" method="post">
                         <div className="nameSurnameBox">
                             <div className="nameBox">
+                              <p>{messageError}</p>
                                 <p className="nameText"> Nombre</p><input className="name" id="name" onChange={(e) => setDataToName(e.target.value)} type="text" name="name" required="" />
                             </div>
                             <div className="surnameBox">
@@ -189,7 +205,7 @@ useEffect(() => {
                                 <p className="checText">Ver contraseña</p>
                             </div>
                         </div>
-                        <div className="botonFormReg"><input className="botonReg" type="submit" onClick={() => sendData()} value="Crear Cuenta" /></div>
+                        <div className="botonFormReg"><input className="botonReg" type="button" onClick={() => sendData()} value="Crear Cuenta" /></div>
                     </form>
                 </div>
             </div>
@@ -205,7 +221,7 @@ useEffect(() => {
             </div>
             <div className="inpBu" action="/login" method="post">
             <input className="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
-            <input className="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input className="botonLog" onClick={() => LogData()} id="botonLog" type="submit" value="Acceder" />
+            <input className="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input className="botonLog" onClick={() => LogData()} id="botonLog" type="button" value="Acceder" />
             </div>
         </div>
     </section>
