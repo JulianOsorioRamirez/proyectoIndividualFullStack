@@ -1,14 +1,14 @@
 import React, { useState,useEffect } from "react";
 import BtnsR from "./ComponenteBtnR" 
-import IMG from "../componentes/images/tyler.jpg"
-import IMG2 from "../componentes/images/chulosykinkis.jpg"
-import IMG3 from "../componentes/images/classicKinkis.jpg"
-import IMG4 from "../componentes/images/Laker.jpg"
-import IMG5 from "../componentes/images/sudaderaMadriz.jpg"
-import IMG6 from "../componentes/images/champions.jpg"
-import IMG7 from "../componentes/images/amorDeBarrio.jpg"
-import IMG8 from "../componentes/images/kinkisGraf.jpg"
-import IMG9 from "../componentes/images/pantalonKinkis.jpg"
+// import IMG from "../componentes/images/tyler.jpg"
+// import IMG2 from "../componentes/images/chulosykinkis.jpg"
+// import IMG3 from "../componentes/images/classicKinkis.jpg"
+// import IMG4 from "../componentes/images/Laker.jpg"
+// import IMG5 from "../componentes/images/sudaderaMadriz.jpg"
+// import IMG6 from "../componentes/images/champions.jpg"
+// import IMG7 from "../componentes/images/amorDeBarrio.jpg"
+// import IMG8 from "../componentes/images/kinkisGraf.jpg"
+// import IMG9 from "../componentes/images/pantalonKinkis.jpg"
 import logo from "../componentes/images/dobermanLOGO.jpg"
 import {Link} from "react-router-dom"
 
@@ -22,6 +22,17 @@ function Producs () {
   const [sendPassLog, setDataToPassLog] = useState("");
   // const [sendIdUser, setDataIdUser] = useState("");
   const[sendIdProduc, setDataToIdProduc] = useState("");
+  
+  useEffect(() => {
+    fetch("serchIdProduc")
+    .then((response) => response.json())
+    .then((res)=> setDataToIdProduc(res))
+}, []);
+useEffect(()=>{
+    if(sendIdProduc){
+      console.log(sendIdProduc)
+    }
+},[sendIdProduc]);
 
   const addProduct = (t) => {
     let producName = document.getElementsByClassName("producName")[t].innerText
@@ -105,15 +116,15 @@ function Producs () {
         <h1 className="title">Prendas de Ropa</h1>
         <button id="homeBtn"> <Link to={"/bisuteria"}>Bisuteria</Link></button>
         <div className="allProductsCont">
-        <div className="productos">
+        {sendIdProduc ? sendIdProduc.map((producto)=> <div className="productos">
           <div className ="producto">
             <div className = "producto_img">
-              <img src={IMG} alt=""/>
+              <img src={"./images/amorDeBarrio.jpg"} alt=""/>
             </div>
             <div className="producto_footer">
-                <h1 className="producName">Tyler T shirt</h1>
+                <h1 className="producName">{producto.Nombre}</h1>
                
-                <p className="price">17€</p>
+                <p className="price">{producto.Precio}</p>
             </div>
             <BtnsR/>
             <div className="button">
@@ -126,196 +137,7 @@ function Producs () {
                </div>
              </div>
             </div>
-        </div>
-       
-        <div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG2} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName">chulos y castizos</h1>
-                
-                <p className="price">17€</p>
-            </div>
-            <BtnsR/>
-            <div className="button">
-               <button id  ="1" onClick={(e) => addProduct(e.target.id)} className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-
-               
-              </div>
-            </div>
-        </div>
-
-        <div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG3} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName" >kinkis Clasic</h1>
-                
-                <p className="price">17€</p>
-            </div>
-            <BtnsR/>
-            
-            <div className="button">
-               <button id ="2" onClick={(e) => addProduct(e.target.id)} className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-
-               
-              </div>
-            </div>
-        </div>
-
-        <div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG4} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName">Kinkis Lakers</h1>
-                
-                <p className="price">17€</p>
-            </div>
-            <BtnsR/>
-           
-            <div className="button">
-               <button  id ="3" onClick={(e) => addProduct(e.target.id)}className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-             </div>
-            </div>
-        </div><div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG5} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName">Sudadera Madriz</h1>
-               
-                <p className="price">17€</p>
-            </div>
-            <BtnsR/>
-           
-            <div className="button">
-               <button id ="4" onClick={(e) => addProduct(e.target.id)} className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-             </div>
-            </div>
-        </div>
-        <div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG6} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName">Champions T shirt</h1>
-                
-                <p className="price">17€</p>
-            </div>
-            <BtnsR/>
-            
-            <div className="button">
-               <button id ="5" onClick={(e) => addProduct(e.target.id)} className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-             </div>
-            </div>
-        </div>
-
-        <div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG7} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName">Amor De Barrio</h1>
-                
-                <p className="price">17€</p>
-            </div>
-            <BtnsR/>
-            
-            <div className="button">
-               <button id ="6" onClick={(e) => addProduct(e.target.id)} className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-             </div>
-            </div>
-        </div>
-        <div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG8} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName">Kinkis Graff</h1>
-                
-                <p className="price">17€</p>
-            </div>
-            <BtnsR/>
-           
-            <div className="button">
-               <button id ="7" onClick={(e) => addProduct(e.target.id)} className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-             </div>
-            </div>
-        </div>
-        <div className="productos">
-          <div className ="producto">
-            <div className = "producto_img">
-              <img src={IMG9} alt=""/>
-            </div>
-            <div className="producto_footer">
-                <h1 className="producName">Bañador Madriz</h1>
-                
-                <p className="price">15€</p>
-            </div>
-            <BtnsR/>
-            <div className="button">
-               <button id ="8" onClick={(e) => addProduct(e.target.id)} className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-             </div>
-            </div>
-        </div>
+        </div> ):""} 
         </div>
       </div>
     );

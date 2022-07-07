@@ -20,6 +20,7 @@ function Home() {
   const [sendEmailLog, setDataToEmailLog] = useState("");
   const [sendPassLog, setDataToPassLog] = useState("");
   const [sendIdUser, setDataIdUser] = useState("");
+  const[sendIdProduc, setDataToIdProduc] = useState("");
   
 
   useEffect(() => {
@@ -35,7 +36,14 @@ function Home() {
 }, [sendIdUser]);
 
   
-
+useEffect(() => {
+  let infoLocal = JSON.parse(localStorage.getItem("CarritoDeCompra"))
+  console.log(infoLocal)
+  console.log(sendIdProduc)
+  infoLocal[0].Producto = sendIdProduc.productId
+  infoLocal[0].Precio = sendIdProduc.productPrice
+  localStorage.setItem("CarritoDeCompra",JSON.stringify(infoLocal))
+}, [sendIdProduc]);
 
  
   
