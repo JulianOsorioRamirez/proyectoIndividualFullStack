@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-
+import BtnsR from "./ComponenteBtnR" 
 import IMG from "../componentes/images/tyler.jpg"
 import IMG2 from "../componentes/images/chulosykinkis.jpg"
 import IMG3 from "../componentes/images/classicKinkis.jpg"
@@ -115,18 +115,7 @@ function Producs () {
                
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-              </div>
+            <BtnsR/>
             <div className="button">
                <button id ="0" onClick={(e) => addProduct(e.target.id)}className = "btn">
                    Añadir al carrito
@@ -149,21 +138,7 @@ function Producs () {
                 
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
             <div className="button">
                <button id  ="1" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -188,21 +163,8 @@ function Producs () {
                 
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
+            
             <div className="button">
                <button id ="2" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -227,21 +189,8 @@ function Producs () {
                 
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
+           
             <div className="button">
                <button  id ="3" onClick={(e) => addProduct(e.target.id)}className = "btn">
                    Añadir al carrito
@@ -262,21 +211,8 @@ function Producs () {
                
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
+           
             <div className="button">
                <button id ="4" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -298,21 +234,8 @@ function Producs () {
                 
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
+            
             <div className="button">
                <button id ="5" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -335,21 +258,8 @@ function Producs () {
                 
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
+            
             <div className="button">
                <button id ="6" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -371,21 +281,8 @@ function Producs () {
                 
                 <p className="price">17€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
+           
             <div className="button">
                <button id ="7" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -407,21 +304,7 @@ function Producs () {
                 
                 <p className="price">15€</p>
             </div>
-            <div className ="buttonsTalla">
-            <button className = "btn">
-                   S
-               </button><button className = "btn">
-                   M
-               </button><button className = "btn">
-                  L
-               </button>
-               <button className = "btn">
-                  XL
-               </button>
-               
-               
-               
-              </div>
+            <BtnsR/>
             <div className="button">
                <button id ="8" onClick={(e) => addProduct(e.target.id)} className = "btn">
                    Añadir al carrito

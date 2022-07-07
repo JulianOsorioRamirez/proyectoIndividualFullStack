@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+import BtnsB from "./ComponenteBtnsB" 
 
 import IMG from "../componentes/images/aros trenzados.png"
 import IMG2 from "../componentes/images/arosBrillantes.png"
@@ -104,13 +105,7 @@ function Bisuteria() {
                
                 <p className="price">5€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+           <BtnsB/>
             <div className="button">
                <button id ="0"  onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -133,13 +128,7 @@ function Bisuteria() {
                 
                 <p className="price">3€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button id ="1" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -164,13 +153,7 @@ function Bisuteria() {
                 
                 <p className="price">5€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button id ="2" onClick={(e) => addProductB(e.target.id)}  className = "btn">
                    Añadir al carrito
@@ -195,13 +178,7 @@ function Bisuteria() {
                 
                 <p className="price">5€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button  id ="3" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -222,13 +199,7 @@ function Bisuteria() {
                
                 <p className="price">3€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button id ="4"onClick={(e) => addProductB(e.target.id)}  className = "btn">
                    Añadir al carrito
@@ -250,13 +221,7 @@ function Bisuteria() {
                 
                 <p className="price">3€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button id ="5" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -279,13 +244,7 @@ function Bisuteria() {
                 
                 <p className="price">5€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button id ="6" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
@@ -307,13 +266,7 @@ function Bisuteria() {
                 
                 <p className="price">7€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button id ="7" onClick={(e) => addProductB(e.target.id)}  className = "btn">
                    Añadir al carrito
@@ -335,13 +288,7 @@ function Bisuteria() {
                 
                 <p className="price">7€</p>
             </div>
-            <div className ="buttonsColor">
-            <button className = "btn">
-                   Dorado
-               </button><button className = "btn">
-                   Plata
-               </button>
-            </div>
+            <BtnsB/>
             <div className="button">
                <button id ="8" onClick={(e) => addProductB(e.target.id)} className = "btn">
                    Añadir al carrito
