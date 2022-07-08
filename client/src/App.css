@@ -123,14 +123,28 @@
 #añadirBtn {
     width: 25rem;
 }
-#homeBtn {
+#prenView{
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+    text-decoration: none;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+#homeBtn{
     margin-top: 1rem;
     box-sizing: border-box;
     background-color:#c7c2c2;
     text-decoration: none;
     width: 98px;
     height: 40px;
-
+    margin-right: 6rem;
     border: 1px solid #111111;
     border-radius: 8px;
 
