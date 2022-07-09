@@ -4,14 +4,7 @@ import {Link} from "react-router-dom"
 
 function NavProducts () {
 
-    function shopCarView (){
-        let test = document.getElementById("contShopCar");
-        if (test.style.display == "none") {
-          test.style.display = "inline";
-        } else {
-          test.style.display = "none";
-        }
-      }
+    
     
    
     return(
@@ -26,7 +19,7 @@ function NavProducts () {
           </div>
         <div className="divLogin">
                 
-                <input className="sing" id="sing" type="submit" onClick={() => shopCarView()} value="Carrito" />
+                <input className="sing" id="sing" type="submit"  value="Carrito" />
             </div>
         </nav>
     </div>

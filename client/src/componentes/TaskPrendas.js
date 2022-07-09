@@ -12,7 +12,9 @@ function TaskPrendas () {
     }, []);
     useEffect(()=>{
         if(sendIdProduc){
-          console.log(sendIdProduc)
+          console.log(sendIdProduc.id)
+          
+          
         }
     },[sendIdProduc]);
 
@@ -25,7 +27,7 @@ function TaskPrendas () {
               {/* <p>{producto.img}</p> */}
             </div>
             <div className="producto_footer">
-                <h1 className="producName">{producto.Nombre}</h1>
+                <h1 id="producName">{producto.Nombre}</h1>
                
                 <p className="price">{producto.Precio}</p>
             </div>

@@ -24,9 +24,11 @@ function Home() {
   // const [sendEmailLog, setDataToEmailLog] = useState("");
   // const [sendPassLog, setDataToPassLog] = useState("");
   // const [sendIdUser, setDataIdUser] = useState("");
+   
   
    return (
     <div className="Home">
+    
     <NavHome/>
     <ContRegis/>
     <ContLog/>

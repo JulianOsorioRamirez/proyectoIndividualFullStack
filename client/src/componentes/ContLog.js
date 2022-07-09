@@ -7,8 +7,7 @@ function ContLog () {
     const [sendIdUser, setDataIdUser] = useState("");
     const navigate = useNavigate()
     const LogData = () => {
-        console.log(sendEmailLog);
-        console.log(sendPassLog);
+        
         const requestOptions = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
