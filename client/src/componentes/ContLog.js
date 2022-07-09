@@ -21,6 +21,9 @@ function ContLog () {
           .then((res)=> setDataIdUser(res.id))
           if(sendIdUser){
             navigate("/homeUserLog")
+            
+            localStorage.setItem("idUser",sendIdUser );
+
           }
           
       }  
@@ -34,7 +37,8 @@ function ContLog () {
             </div>
             <div className="inpBu" action="/login" method="post">
             <input className="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
-            <input className="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" /><input className="botonLog" onClick={() => LogData()} id="botonLog" type="button" value="Acceder" />
+            <input className="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" />
+            <input className="botonLog" onClick={() => LogData()} id="botonLog" type="button" value="Acceder" />
             </div>
         </div>
     </section>

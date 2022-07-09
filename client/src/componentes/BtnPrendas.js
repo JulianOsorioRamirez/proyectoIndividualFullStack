@@ -1,9 +1,17 @@
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
+
+import { useState, useEffect } from "react";
 
 
-function BtnPrenda () {
+function BtnPrenda (props) {
+
+    // props.name = "Bisuteria"
+    const[name, setName] = useState("Prendas")
+       
+    
+
     return(
-        <button id="prenView"> <Link to={"/bisuteria"}>Bisuteria</Link></button>
+        <button className="btn" onClick={() => setName("Bisuteria")}  id="prenView">{name}</button>
     )
      
     

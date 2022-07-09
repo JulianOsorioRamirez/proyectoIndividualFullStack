@@ -30,15 +30,6 @@ function TaskPrendas () {
                 <p className="price">{producto.Precio}</p>
             </div>
             <BtnsR/>
-            <div className="button">
-               <button id ="0" className = "btn">
-                   Añadir al carrito
-               </button>
-               
-               <div>
-                {/* <a href="#"></a> */}
-               </div>
-             </div>
             </div>
         </div> ):""} 
         </div>

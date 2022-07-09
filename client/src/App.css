@@ -97,7 +97,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.btn {
+.btn, .btnA {
     box-sizing: border-box;
     background-color:#c7c2c2;
 
@@ -112,6 +112,10 @@
     order: 2;
     flex-grow: 0;
 }
+#btnA{
+    display: block;
+    margin-left: 9.5rem;
+}
 #añadirBtnb {
     margin-bottom: 2rem;
 }
@@ -120,6 +124,7 @@
     background-color: black;
     color: #c7c2c2;
 }
+
 #añadirBtn {
     width: 25rem;
 }
@@ -925,6 +930,16 @@ margin-left: 45rem;
 /*TODO                    Comienzo Log */
 
 .contLog {
+    display: none;
+    background-color: #c7c2c2;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+#contShopCar{
     display: none;
     background-color: #c7c2c2;
     position: absolute;
