@@ -1,9 +1,13 @@
 function ContShopCar() {
     return(
-        <section className="conShopCar" id="contShopCar">
+        <div>
+            <div className="contShopCar" id="contShopCar">
         
         
-        </section>
+            </div>
+
+        </div>
+        
     );
     
 }

@@ -1,7 +1,9 @@
 import React, { useState,useEffect } from "react";
 import BtnsR from "./ComponenteBtnR";
+import BtnsB from "./ComponenteBtnsB";
 
 function TaskPrendas () {
+    const[sendIdProducB, setDataToIdProducB] = useState("");
 
     const[sendIdProduc, setDataToIdProduc] = useState("");
 
@@ -13,10 +15,19 @@ function TaskPrendas () {
     useEffect(()=>{
         if(sendIdProduc){
           console.log(sendIdProduc.id)
-          
-          
         }
     },[sendIdProduc]);
+
+    useEffect(() => {
+        fetch("serchIdProducB")
+        .then((response) => response.json())
+        .then((res)=> setDataToIdProducB(res))
+    }, []);
+    useEffect(()=>{
+        if(sendIdProducB){
+          console.log(sendIdProducB)
+        }
+    },[sendIdProducB]);
 
     return(
         <div className="allProductsCont">
@@ -33,7 +44,7 @@ function TaskPrendas () {
             </div>
             <BtnsR/>
             </div>
-        </div> ):""} 
+        </div> ): ""} 
         </div>
     )
 }

@@ -4,6 +4,7 @@ import Bisuteria from "./Bisuteria";
 import Home from "./Home" 
 import HomeUserLog from "./HomeUserLog";
 import Producs from "./Producs" 
+import ShopCarView from "./shopCarView";
 
 
 
@@ -16,6 +17,9 @@ class Main extends Component {
             <Route path="/producs" element={<Producs />} />
             <Route path="/bisuteria" element={<Bisuteria />} />
             <Route path="/homeUserLog" element={<HomeUserLog />} />
+            <Route path="/shopCarView" element={<ShopCarView />} />
+
+
 
             </Routes>
         </div>

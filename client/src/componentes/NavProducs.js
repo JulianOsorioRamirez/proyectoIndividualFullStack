@@ -17,10 +17,11 @@ function NavProducts () {
           <div>
           <button id="homeBtn"> <Link to={"/"}>Home</Link></button>
           </div>
-        <div className="divLogin">
+        
                 
-                <input className="sing" id="sing" type="submit"  value="Carrito" />
-            </div>
+          <button id="homeBtn"> <Link to={"/shopCarView"}>Carrito</Link></button>
+                
+            
         </nav>
     </div>
         

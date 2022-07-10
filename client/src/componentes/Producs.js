@@ -9,23 +9,13 @@ import ContShopCar from "./contShopCar";
 import { Link } from "react-router-dom";
 
 function Producs() {
-  const [sendEmailLog, setDataToEmailLog] = useState("");
-  const [sendPassLog, setDataToPassLog] = useState("");
-  // const [sendIdUser, setDataIdUser] = useState("");
-  const [sendIdProduc, setDataToIdProduc] = useState("");
+  // const [sendEmailLog, setDataToEmailLog] = useState("");
+  // const [sendPassLog, setDataToPassLog] = useState("");
+  // // const [sendIdUser, setDataIdUser] = useState("");
+  // const [sendIdProduc, setDataToIdProduc] = useState("");
   
 
-  useEffect(() => {
-    fetch("serchIdProduc")
-      .then((response) => response.json())
-      .then((res) => setDataToIdProduc(res));
-  }, []);
-  useEffect(() => {
-    if (sendIdProduc) {
-      console.log(sendIdProduc);
-    }
-  }, [sendIdProduc]);
-  
+ 
   // const addProduct = (t) => {
   //   let producName = document.getElementsByClassName("producName")[t].innerText
   //   console.log(producName)
@@ -69,7 +59,7 @@ function Producs() {
       <NavProducts/>
       <ContShopCar/>
       <TittlePrendas/>
-      <BtnPrenda/>
+      <BtnPrenda  name = "Prendas"/>
       <TaskPrendas/>
       </div>
   );
