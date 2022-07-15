@@ -65,7 +65,7 @@ function TaskPrendas (id) {
                
                 <p className="price">{producto.Precio}</p>
             </div>
-            <BtnsB tarjetas = {sendIdProducB}/>
+            <BtnsB id={i}  tarjetas = {sendIdProducB}/>
             <div className="button">
 
                

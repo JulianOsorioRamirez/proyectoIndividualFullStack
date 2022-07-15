@@ -9,7 +9,7 @@ function BtnsB (props) {
   
         let nameProduct =  props.tarjetas[props.id].id
   
-        car.push(nameProduct)
+        
         console.log(nameProduct)
   
         
