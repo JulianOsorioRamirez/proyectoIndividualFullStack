@@ -5,6 +5,7 @@ import TaskPrendas from "./TaskPrendas";
 import BtnPrenda from "./BtnPrendas";
 import TittlePrendas from "./tittlePrendas"
 import ContShopCar from "./contShopCar";
+import producstState from "../context/context";
 
 import { Link } from "react-router-dom";
 
@@ -52,15 +53,19 @@ function Producs() {
 
   //   fetch("login", requestOptions).then((response) => response.json());
   // };
+
+  const[state, setState] = useState("Prendas")
   
   
   return (
     <div className="ProdIndex">
+      
       <NavProducts/>
       <ContShopCar/>
       <TittlePrendas/>
-      <BtnPrenda  name = "Prendas"/>
-      <TaskPrendas/>
+      <BtnPrenda  />
+      <TaskPrendas/> 
+      
       </div>
   );
 }

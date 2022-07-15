@@ -1,11 +1,23 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useContext  } from "react";
+
 import BtnsR from "./ComponenteBtnR";
 import BtnsB from "./ComponenteBtnsB";
+import PrendasContext from "../context/context";
 
-function TaskPrendas () {
+
+function TaskPrendas (id) {
     const[sendIdProducB, setDataToIdProducB] = useState("");
 
     const[sendIdProduc, setDataToIdProduc] = useState("");
+
+    const EstadoPrendas = useContext(PrendasContext)
+    useEffect(() =>{
+      console.log(EstadoPrendas.name)
+    })
+
+  
+  
+    
 
     useEffect(() => {
         fetch("serchIdProduc")
@@ -31,20 +43,47 @@ function TaskPrendas () {
 
     return(
         <div className="allProductsCont">
-        {sendIdProduc ? sendIdProduc.map((producto,i)=> <div className="productos" key={i}>
+          
+        {EstadoPrendas.name == "Prendas" && sendIdProduc ? sendIdProduc.map((producto,i)=> <div className="productos" key={i}>
           <div className ="producto">
             <div className = "producto_img">
               <img src={producto.img} alt=""/>
               {/* <p>{producto.img}</p> */}
             </div>
             <div className="producto_footer">
-                <h1 id="producName">{producto.Nombre}</h1>
+                <h1 className="producName" id={i}>{producto.Nombre}</h1>
                
                 <p className="price">{producto.Precio}</p>
             </div>
-            <BtnsR/>
+            <BtnsR id={i + "b" } />
             </div>
-        </div> ): ""} 
+        </div> ) : sendIdProducB ? sendIdProducB.map((producto,i)=> <div className="productos" key={i}>
+          <div className ="producto">
+            <div className = "producto_img">
+              <img src={producto.img} alt=""/>
+              {/* <p>{producto.img}</p> */}
+            </div>
+            <div className="producto_footer">
+                <h1 className="producName">{producto.Nombre}</h1>
+               
+                <p className="price">{producto.Precio}</p>
+            </div>
+            <BtnsB/>
+            <div className="button">
+               <button id ="0" className = "btn">
+                   Añadir al carrito
+               </button>
+               
+               <div>
+                {/* <a href="#"></a> */}
+               </div>
+             </div>
+            </div>
+        </div> ) : ""} 
+
+        
+
+
         </div>
     )
 }

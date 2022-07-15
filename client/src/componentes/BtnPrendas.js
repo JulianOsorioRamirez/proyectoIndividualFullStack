@@ -1,50 +1,58 @@
 // import {Link} from "react-router-dom"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import React from "react";
+import PrendasContext from "../context/context";
 
 
-function BtnPrenda () {
 
-    // props.name = "Bisuteria"
-    const[name, setName] = useState("Prendas")
+
+function BtnPrenda(props) {
+  // const[name, setName] = useState("Prendas")
+  const [typeView, setTypeView] = useState("Prendas");
+  const title = useContext(PrendasContext)
+
+  
+  useEffect(() => {
+    title.setName(typeView)
+    })
     
 
-       
-   
+  useEffect(()=>{
     
+  },[typeView])
+
+
+  
+  
+
+  return (
     
-            
+    <div>
+     
         
-    // name == 'bisuteria' ? <button onclick= setName={('prendas')}></button> : <button onclick= setName={('bisuteria')}></button>
-    return(
-    name == "Bisuteria" ? <button className="btn" onClick={() => setName("Prendas")}  id="prenView">{name}</button> : <button className="btn" onClick={() => setName("Bisuteria")}  id="prenView">{name}</button>
-    )
+      
+        <button
+          className="btn"
+          onClick={() => setTypeView("Prendas")}
+          id="prenView"
+        >
+          Prendas
+        </button>
+
+           <button
+          className="btn"
+          onClick={() => setTypeView("Bisuteria")}
+          id="prenView"
+        >
+          Bisuteria
+        </button>
+        
+    </div>
+    
+  );
 }
 export default BtnPrenda;
 
 
-// class BtnPrenda extends React.Component {
-
-    
-   
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//             name : "Prendas",
-//             name2 : "Bisuteria"
-//         }
-//     }
-    
-    
-    
-    
-//     render() {
-//         return (
-//             <button className="btn" id="prenView">{this.props.name}</button>
-//         )
-//     }
-// }
-
-// export default BtnPrenda;
 

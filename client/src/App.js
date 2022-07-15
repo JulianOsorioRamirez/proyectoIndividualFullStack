@@ -5,6 +5,8 @@ import './App.css';
 // import Producs from './componentes/Producs';
 import { BrowserRouter ,Link } from "react-router-dom";
 import MainComponent from "./componentes/Main";
+import { useContext, useState } from 'react';
+import PrendasContext from './context/context';
 
 
 
@@ -12,16 +14,21 @@ import MainComponent from "./componentes/Main";
 // import Welcome from './Welcome';
 
 function App() {
-  
 
+const state = useContext(PrendasContext)
+const[name, setName] = useState(state)
+let objetoData = {
+   name, 
+   setName
+}
  return (
     <div className="App">
     <BrowserRouter>
+    <PrendasContext.Provider value = {objetoData}>
     
-          {/* <Producs/> */}
-          {/* <Home/> */}
+          
        <MainComponent />
-      
+   </PrendasContext.Provider>
     </BrowserRouter>
     </div>
   );

@@ -112,7 +112,7 @@
     order: 2;
     flex-grow: 0;
 }
-#btnA{
+.btnA{
     display: block;
     margin-left: 9.5rem;
 }

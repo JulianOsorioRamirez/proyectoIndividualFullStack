@@ -15,8 +15,6 @@ function ContRegis () {
         
 
        const sendData = () => {
-        
-  
         console.log(sendName);
         console.log(sendUnName);
         const requestOptions = {
@@ -33,24 +31,11 @@ function ContRegis () {
     
         fetch("registro", requestOptions)
           .then((response) => response.json())
-          .then((res) =>{
-            console.log(res)
-            if(res.messege == "ok"){
-              let test = document.getElementById('contLog');
-              test.style.display = 'none'
-            }else{
-              setMessegeError("correo ya registrado")
-            }
-          })
-        
-    
-    
           
+              
+            
           
-          
-    
-          
-      };
+        };
     return(
         <div className="contenedorRegis" id="contenedorRegis">
         <div className="acountCreate">

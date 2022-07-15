@@ -1,39 +1,32 @@
 import React, { useState,useEffect } from "react";
+import {useParams} from 'react-router-dom'
 
 
-
-function BtnsR () {
+function BtnsR (props) {
     // const [sendIdUser, setDataIdUser] = useState("");
 
-    const[tallaM, setDatatallaM] = useState("M")
-    const[tallaS, setDatatallaS] = useState("S")
-    const[tallaL, setDatatallaL] = useState("L")
-    const[tallaXL, setDatatallaXL] = useState("XL")
+    const[talla, setDatatalla] = useState("")
     
     useEffect(() => {
-
-        let idUser = JSON.parse(localStorage.getItem("idUser"));
+       console.log(talla)
+    },[talla])
+    useEffect(() => {
+       let idUser = JSON.parse(localStorage.getItem("idUser"));
         console.log(idUser)
-        
-
-        // fetch("serchIdProduc")
-        // .then((response) => response.json())
-        // .then((res)=> setDataToIdProduc(res))
     }, []);
 
-    function shopCar () {
-        let nameProduct = document.getElementById("producName")
-        console.log(nameProduct)
+    function ShopCar (here) {
+        
     }
 
   
     return(
         <div className   ="buttonsTalla">
-            <button className="btn"> {tallaS} </button>
-            <button className = "btn"> {tallaM} </button>
-            <button className = "btn"> {tallaL} </button>
-            <button className = "btn"> {tallaXL}</button>
-            <button id ="btnA" onClick={() => shopCar()} className = "btn"> Añadir al carrito </button>
+            <button className="btn" onClick={() => setDatatalla("S")}> S </button>
+            <button className = "btn" onClick={() => setDatatalla("M")}> M </button>
+            <button className = "btn" onClick={() => setDatatalla("L")}> L </button>
+            <button className = "btn" onClick={() => setDatatalla("XL")}> XL </button>
+            <button className = "btnA" id ={props.id} onClick={(e) => ShopCar(e.target.id)} > Añadir al carrito </button>
             </div>
     )
 }
