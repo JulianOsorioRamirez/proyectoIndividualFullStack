@@ -7,6 +7,7 @@ import PrendasContext from "../context/context";
 
 function TaskPrendas (id) {
     const[sendIdProducB, setDataToIdProducB] = useState("");
+    console.log(id)
 
     const[sendIdProduc, setDataToIdProduc] = useState("");
 
@@ -14,10 +15,6 @@ function TaskPrendas (id) {
     useEffect(() =>{
       console.log(EstadoPrendas.name)
     })
-
-  
-  
-    
 
     useEffect(() => {
         fetch("serchIdProduc")
@@ -55,7 +52,7 @@ function TaskPrendas (id) {
                
                 <p className="price">{producto.Precio}</p>
             </div>
-            <BtnsR id={i + "b" } />
+            <BtnsR id={i} tarjetas = {sendIdProduc}/>
             </div>
         </div> ) : sendIdProducB ? sendIdProducB.map((producto,i)=> <div className="productos" key={i}>
           <div className ="producto">
@@ -68,11 +65,9 @@ function TaskPrendas (id) {
                
                 <p className="price">{producto.Precio}</p>
             </div>
-            <BtnsB/>
+            <BtnsB tarjetas = {sendIdProducB}/>
             <div className="button">
-               <button id ="0" className = "btn">
-                   Añadir al carrito
-               </button>
+
                
                <div>
                 {/* <a href="#"></a> */}

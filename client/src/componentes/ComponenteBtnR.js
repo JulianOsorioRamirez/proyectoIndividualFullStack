@@ -16,7 +16,15 @@ function BtnsR (props) {
     }, []);
 
     function ShopCar (here) {
-        
+      
+      let car = localStorage.getItem("carrito")
+
+      let nameProduct =  props.tarjetas[props.id].id
+
+      
+      console.log(nameProduct)
+
+      
     }
 
   

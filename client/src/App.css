@@ -97,7 +97,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.btn, .btnA {
+.btn, .btnA ,.btnAb{
     box-sizing: border-box;
     background-color:#c7c2c2;
 
@@ -115,6 +115,10 @@
 .btnA{
     display: block;
     margin-left: 9.5rem;
+}
+.btnAb{
+    display: block;
+    margin-left: 3rem;
 }
 #añadirBtnb { 
     margin-bottom: 2rem;

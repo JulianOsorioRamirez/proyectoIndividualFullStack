@@ -22,6 +22,8 @@ function ContLog () {
             navigate("/homeUserLog")
             
             localStorage.setItem("idUser",sendIdUser );
+            let shopCar = []
+            localStorage.setItem("carrito", shopCar)
 
           }
           

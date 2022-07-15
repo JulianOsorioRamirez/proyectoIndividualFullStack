@@ -9,10 +9,6 @@ import { useContext, useState } from 'react';
 import PrendasContext from './context/context';
 
 
-
-// import Nav from "./Nav"
-// import Welcome from './Welcome';
-
 function App() {
 
 const state = useContext(PrendasContext)
