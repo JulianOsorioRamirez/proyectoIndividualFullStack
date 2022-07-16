@@ -7,6 +7,12 @@ function BtnsR (props) {
 
     const[talla, setDatatalla] = useState("")
     
+    useEffect(()=>{
+    let car = JSON.parse(localStorage.getItem("Carrito"));
+      
+    },[])
+
+    
     useEffect(() => {
        console.log(talla)
     },[talla])
@@ -22,6 +28,9 @@ function BtnsR (props) {
         let idProduc =  props.tarjetas[props.id].id
         let producPrice = props.tarjetas[props.id].Precio
         let car = JSON.parse(localStorage.getItem("Carrito"));
+        if(car[0] == null){
+            car.push(idUser)
+        }
         //  let car = []
         //aqui
   
@@ -64,7 +73,7 @@ function BtnsR (props) {
             <button className = "btn" onClick={() => setDatatalla("M")}> M </button>
             <button className = "btn" onClick={() => setDatatalla("L")}> L </button>
             <button className = "btn" onClick={() => setDatatalla("XL")}> XL </button>
-            <button className = "btnA" id ={props.id} onClick={(e) => ShopCar(e.target.id)} > Añadir al carrito </button>
+            <button className = "btnA" id ={props.id} productoImg = {props.tarjetas[props.id].img}  onClick={(e) => ShopCar(e.target.id)} > Añadir al carrito </button>
             </div>
     )
 }

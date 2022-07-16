@@ -19,9 +19,16 @@ function ContLog () {
           .then((response) => response.json())
           .then((res)=> setDataIdUser(res.id))
           if(sendIdUser){
-            navigate("/homeUserLog")
-            let car = []
+            navigate("/")
+            let test = document.getElementById('contLog');
+            if (test.style.display == 'block') {
+          test.style.display = 'none';
+          } else {
+          test.style.display = 'block'
+          }
+            
             localStorage.setItem("idUser",sendIdUser );
+            let car = []
             localStorage.setItem("Carrito", JSON.stringify(car));
             
 

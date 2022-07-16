@@ -1,13 +1,14 @@
 import NavHome from "./NavHome"
 import ContShopCar from "./contShopCar";
+import { useEffect,useContext,useState } from "react";
+import NavProducts from "./NavProducs";
 function ShopCarView () {
+    
     return(
      <div>
-      <NavHome/>
-      <div className="contShopCar" id="contShopCar">
-        
-        
-     </div>
+      <NavProducts/>
+      
+      <ContShopCar/>
      </div>
      
     )

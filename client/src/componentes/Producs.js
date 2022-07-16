@@ -5,6 +5,7 @@ import TaskPrendas from "./TaskPrendas";
 import BtnPrenda from "./BtnPrendas";
 import TittlePrendas from "./tittlePrendas"
 import ContShopCar from "./contShopCar";
+import ShopCarView from "./shopCarView";
 import producstState from "../context/context";
 
 import { Link } from "react-router-dom";
@@ -32,15 +33,15 @@ function Producs() {
   //     .then((res)=> setDataToIdProduc(res))
 
   // }
-
-  //   useEffect(() => {
-  //     let infoLocal = JSON.parse(localStorage.getItem("CarritoDeCompra"))
-  //     console.log(infoLocal)
-  //     console.log(sendIdProduc)
-  //     infoLocal[0].Producto = sendIdProduc.productId
-  //     infoLocal[0].Precio = sendIdProduc.productPrice
-  //     localStorage.setItem("CarritoDeCompra",JSON.stringify(infoLocal))
-  // }, [sendIdProduc]);
+  
+    useEffect(() => {
+      console.log(localStorage)
+      if(localStorage.length == 0){
+        let car = []
+        localStorage.setItem("Carrito", JSON.stringify(car));
+      }
+      
+  }, []);
 
   // const LogData = () => {
   //   console.log(sendEmailLog);
@@ -65,6 +66,8 @@ function Producs() {
       <TittlePrendas/>
       <BtnPrenda/>
       <TaskPrendas/> 
+      
+
       
       </div>
   );

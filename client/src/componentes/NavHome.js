@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import {Link} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 function NavHome () {
     const mostrar = () => {
+      
         let test = document.getElementById('contenedorRegis');
+        window.location.reload()
         if (test.style.display == 'block') {
           test.style.display = 'none';
+          
         } else {
           test.style.display = 'block'
         }
@@ -17,6 +21,7 @@ function NavHome () {
         } else {
           test.style.display = 'block'
         }
+        
       }
       function LogOut () {
         localStorage.removeItem('idUser');
@@ -25,6 +30,10 @@ function NavHome () {
         window.location.reload()
         
       }
+      useEffect(()=>{
+       
+        
+      },[])
       
       return(
         <nav className="nav">

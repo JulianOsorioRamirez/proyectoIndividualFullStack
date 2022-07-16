@@ -15,8 +15,8 @@ class Main extends Component {
             <Routes>
             <Route path="/" element={< Home/>} />
             <Route path="/producs" element={<Producs />} />
-            <Route path="/bisuteria" element={<Bisuteria />} />
-            <Route path="/homeUserLog" element={<HomeUserLog />} />
+            {/* <Route path="/bisuteria" element={<Bisuteria />} /> */}
+            {/* <Route path="/homeUserLog" element={<HomeUserLog />} /> */}
             <Route path="/shopCarView" element={<ShopCarView />} />
 
 
