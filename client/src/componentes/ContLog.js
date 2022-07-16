@@ -20,10 +20,14 @@ function ContLog () {
           .then((res)=> setDataIdUser(res.id))
           if(sendIdUser){
             navigate("/homeUserLog")
-            
+            let car = []
             localStorage.setItem("idUser",sendIdUser );
-            let shopCar = []
-            localStorage.setItem("carrito", shopCar)
+            localStorage.setItem("Carrito", JSON.stringify(car));
+            
+
+            
+            
+            
 
           }
           

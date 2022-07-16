@@ -63,7 +63,7 @@ function Producs() {
       <NavProducts/>
       <ContShopCar/>
       <TittlePrendas/>
-      <BtnPrenda  />
+      <BtnPrenda/>
       <TaskPrendas/> 
       
       </div>

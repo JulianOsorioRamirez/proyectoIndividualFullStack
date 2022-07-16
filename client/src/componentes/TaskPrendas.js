@@ -7,25 +7,25 @@ import PrendasContext from "../context/context";
 
 function TaskPrendas (id) {
     const[sendIdProducB, setDataToIdProducB] = useState("");
-    console.log(id)
+    // console.log(id)
 
     const[sendIdProduc, setDataToIdProduc] = useState("");
 
     const EstadoPrendas = useContext(PrendasContext)
-    useEffect(() =>{
-      console.log(EstadoPrendas.name)
-    })
+    // useEffect(() =>{
+    //   // console.log(EstadoPrendas.name)
+    // })
 
     useEffect(() => {
         fetch("serchIdProduc")
         .then((response) => response.json())
         .then((res)=> setDataToIdProduc(res))
     }, []);
-    useEffect(()=>{
-        if(sendIdProduc){
-          console.log(sendIdProduc.id)
-        }
-    },[sendIdProduc]);
+    // useEffect(()=>{
+    //     if(sendIdProduc){
+    //       console.log(sendIdProduc.id)
+    //     }
+    // },[sendIdProduc]);
 
     useEffect(() => {
         fetch("serchIdProducB")

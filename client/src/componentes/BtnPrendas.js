@@ -10,7 +10,7 @@ import PrendasContext from "../context/context";
 function BtnPrenda(props) {
   // const[name, setName] = useState("Prendas")
   const [typeView, setTypeView] = useState("Prendas");
-  const title = useContext(PrendasContext)
+  const title = useContext(PrendasContext) //usamos el useContext para crear el contexto titulo 
 
   
   useEffect(() => {
@@ -18,9 +18,9 @@ function BtnPrenda(props) {
     })
     
 
-  useEffect(()=>{
+  // useEffect(()=>{
     
-  },[typeView])
+  // },[typeView])
 
 
   
