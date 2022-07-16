@@ -6,7 +6,7 @@ function ShopCarView () {
     
     return(
      <div>
-      <NavProducts/>
+      <NavHome/>
       
       <ContShopCar/>
      </div>

@@ -5,7 +5,6 @@ import TaskPrendas from "./TaskPrendas";
 import BtnPrenda from "./BtnPrendas";
 import TittlePrendas from "./tittlePrendas"
 import ContShopCar from "./contShopCar";
-import ShopCarView from "./shopCarView";
 import producstState from "../context/context";
 
 import { Link } from "react-router-dom";
@@ -62,12 +61,11 @@ function Producs() {
     <div className="ProdIndex">
       
       <NavProducts/>
-      <ContShopCar/>
+      
       <TittlePrendas/>
       <BtnPrenda/>
       <TaskPrendas/> 
       
-
       
       </div>
   );
