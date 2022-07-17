@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../componentes/images/dobermanLOGO.jpg"
+import logo from "../images/dobermanLOGO.jpg"
 import {Link} from "react-router-dom"
 
 function NavProducts () {

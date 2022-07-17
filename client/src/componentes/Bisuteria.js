@@ -10,7 +10,7 @@ import BtnsB from "./ComponenteBtnsB"
 // import IMG7 from "../componentes/images/manoDeFatima.png"
 // import IMG8 from "../componentes/images/selloAzteca.png"
 // import IMG9 from "../componentes/images/selloManoDeFatima.png"
-import logo from "../componentes/images/dobermanLOGO.jpg"
+import logo from "../images/dobermanLOGO.jpg"
 import {Link} from "react-router-dom"
 // import React, { useState } from "react";
 

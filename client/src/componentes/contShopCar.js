@@ -71,7 +71,7 @@ function ContShopCar(props) {
             </div>
         </div> ) : ""}
     </div>
-    <div className="btnsCarShop">
+    <div className="btnsCarCredit">
             <button className="botonCarShop" ><Link to={"/producs"}>Seguir Comprando</Link></button>
             <button className = "botonCarShop" ><Link to={"/checkout"}>Finalizar Compra</Link></button>
     </div>

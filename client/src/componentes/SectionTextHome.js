@@ -1,4 +1,4 @@
-import logo from "../componentes/images/dobermanLOGO.jpg"
+import logo from "../images/dobermanLOGO.jpg"
 
 function TextHome () {
     return(
