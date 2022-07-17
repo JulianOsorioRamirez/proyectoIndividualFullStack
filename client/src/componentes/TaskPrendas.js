@@ -10,7 +10,7 @@ function TaskPrendas (id) {
     // console.log(id)
 
     const[sendIdProduc, setDataToIdProduc] = useState("");
-
+    const sendIdProducs = sendIdProduc.length - 10
     const EstadoPrendas = useContext(PrendasContext)
     // useEffect(() =>{
     //   // console.log(EstadoPrendas.name)
@@ -20,6 +20,7 @@ function TaskPrendas (id) {
         fetch("serchIdProduc")
         .then((response) => response.json())
         .then((res)=> setDataToIdProduc(res))
+        
     }, []);
     // useEffect(()=>{
     //     if(sendIdProduc){

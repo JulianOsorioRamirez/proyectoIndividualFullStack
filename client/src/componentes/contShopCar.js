@@ -30,7 +30,7 @@ function ContShopCar(props) {
         idProducs.push(element)
         console.log(idProducs)
         
-
+    
     }
     
     let result = idProducs.filter((item,index)=>{
