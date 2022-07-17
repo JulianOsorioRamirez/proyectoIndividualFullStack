@@ -4,55 +4,50 @@ function ContShopCar(props) {
     const[carrito,setDataCar] = useState("");
     const[price,setDataPrice] = useState("");
     const[dataProducs, setDataProducs] = useState("");
-
+    const idProducs = []
+   
+    useEffect(()=>{
+        if(dataProducs){
+          console.log(dataProducs)
+        }
+    },[dataProducs]);
 
     useEffect(()=>{
        
        const car = JSON.parse(localStorage.getItem("Carrito"));
-    //    for(let i = 0; i <= car.length; i++){
-    //        let idProducs = []
-    //        let id = car[i][i]
-    //     //    idProducs.push(id)
-    //        console.log(id)
-    //    }
-       
-       console.log(car[1])
-       for (let i = 0; i < car.length; i++) {
-        const idProducs = []
-
-        const element = car[i][1];
-        idProducs.push(element)
-        
-       
-        setDataProducs(idProducs)
-
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({id: dataProducs,
-                                  })
-          };
-      
-          fetch("carShop", requestOptions)
-            .then((response) => response.json())
-            .then((res)=> console.log(setDataProducs(res)))
-            
-        
-       }
-       console.log(dataProducs)
-        
-       
-      
-       
-       let id = car[1][1]
-       setDataCar(car)
-       console.log(carrito)
     
        
-    },[])
+       
+       for (let i = 1; i < car.length; i++) {
+        
+        
+        const element = car[i][1];
+        idProducs.push(element)
+        console.log(idProducs)
+        
+
+    }
+    
+    let result = idProducs.filter((item,index)=>{
+        return idProducs.indexOf(item) === index;
+      })
+      console.log(result); //[1,2,6,5,9,'33']
+
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({id: result,
+                              })
+      };
+  
+      fetch("carShop", requestOptions)
+        .then((response) => response.json())
+        .then((res)=> setDataProducs(res))
+
+     },[])
     return(
         <div>
-         {carrito ? carrito.map((producto,i)=> <div className="productos" key={i}>
+         {dataProducs ? dataProducs.map((producto,i)=> <div className="productos" key={i}>
            
           <div className ="producto">
             <div className = "producto_img">
@@ -61,9 +56,9 @@ function ContShopCar(props) {
               
             </div>
             <div className="producto_footer">
-                {/* <h1 className="producName" id={i}>{producto[3]}</h1> */}
+                <h1 className="producName" id={i}>{producto.Nombre}</h1>
                
-                <p className="price">{producto}</p>
+                <p className="price">{producto.Precio}</p>
             </div>
             
             </div>
