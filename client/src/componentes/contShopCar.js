@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom"
+
 
 function ContShopCar(props) {
     const[carrito,setDataCar] = useState("");
     const[price,setDataPrice] = useState("");
     const[dataProducs, setDataProducs] = useState("");
+    const[checkout, setDatacheckout] = useState("");
+
     const idProducs = []
+    
    
     useEffect(()=>{
         if(dataProducs){
@@ -47,9 +52,9 @@ function ContShopCar(props) {
      },[])
     return(
         <div>
-          <h1 className="title">Carrito De Compras</h1>
-
-         {dataProducs ? dataProducs.map((producto,i)=> <div className="contCarShop" key={i}>
+          <h1 className="titleCarShop">Carrito De Compras</h1>
+<div className="allProductsContCar">
+{dataProducs ? dataProducs.map((producto,i)=> <div className="contCarShop" key={i}>
            
           <div className ="productoCar">
             <div className = "producto_imgCar">
@@ -65,8 +70,15 @@ function ContShopCar(props) {
             
             </div>
         </div> ) : ""}
-
-        </div>
+    </div>
+    <div className="btnsCarShop">
+            <button className="botonCarShop" ><Link to={"/producs"}>Seguir Comprando</Link></button>
+            <button className = "botonCarShop" ><Link to={"/checkout"}>Finalizar Compra</Link></button>
+    </div>
+</div>
+       
+          
+         
         
     );
     

@@ -5,6 +5,7 @@ import Home from "./Home"
 import HomeUserLog from "./HomeUserLog";
 import Producs from "./Producs" 
 import ShopCarView from "./shopCarView";
+import  Checkout  from "./checkout";
 
 
 
@@ -18,6 +19,8 @@ class Main extends Component {
             {/* <Route path="/bisuteria" element={<Bisuteria />} /> */}
             <Route path="/homeUserLog" element={<HomeUserLog />} />
             <Route path="/shopCarView" element={<ShopCarView />} />
+            <Route path="/checkout" element={<Checkout/>} />
+
 
 
 

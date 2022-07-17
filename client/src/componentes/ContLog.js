@@ -20,6 +20,7 @@ function ContLog () {
           .then((res)=> setDataIdUser(res.id))
           if(sendIdUser){
             navigate("/")
+            window.location.reload()
             let test = document.getElementById('contLog');
             if (test.style.display == 'block') {
           test.style.display = 'none';
