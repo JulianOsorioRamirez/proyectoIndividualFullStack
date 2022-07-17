@@ -16,7 +16,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+/* titulos, productos y botones */
 .title {
     font-size: 2.4rem;
     font-size: 100px;
@@ -70,6 +70,26 @@
     font-family: 'Poppins', sans-serif;
     font-family: 'Splash', cursive;
     font-family: 'The Nautigal', cursive;
+}
+.contCarShop{
+    width: 25rem;
+}
+.productoCar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
+    box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.2);
+    border: 6px solid transparent;
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+}
+.producto_imgCar img{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 180px;
+    height: 180px;
 }
 
 .producto_footer p {

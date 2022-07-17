@@ -47,10 +47,12 @@ function ContShopCar(props) {
      },[])
     return(
         <div>
-         {dataProducs ? dataProducs.map((producto,i)=> <div className="productos" key={i}>
+          <h1 className="title">Carrito De Compras</h1>
+
+         {dataProducs ? dataProducs.map((producto,i)=> <div className="contCarShop" key={i}>
            
-          <div className ="producto">
-            <div className = "producto_img">
+          <div className ="productoCar">
+            <div className = "producto_imgCar">
               
             <img src={producto.img} alt=""/>
               
