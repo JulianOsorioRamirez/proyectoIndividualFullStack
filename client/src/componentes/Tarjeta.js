@@ -28,7 +28,7 @@ function Tarjeta() {
     },[nTarjetaSend])
 
     useEffect(() => {
-        const car = JSON.parse(localStorage.getItem("Carrito"));
+        const car = JSON.parse(localStorage.getItem("Carrito"))
     
        
        
@@ -93,7 +93,7 @@ function Tarjeta() {
                 const car = JSON.parse(localStorage.getItem("Carrito"));
                 
                 console.log(car)
-                localStorage.removeItem(car);
+                localStorage.removeItem("Carrito");
                 let carrito = []
                 localStorage.setItem("Carrito", JSON.stringify(carrito));
                 

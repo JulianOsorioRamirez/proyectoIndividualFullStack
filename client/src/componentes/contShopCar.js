@@ -9,7 +9,24 @@ function ContShopCar(props) {
     const[checkout, setDatacheckout] = useState("");
 
     const idProducs = []
-    
+    const typeProducs = []
+    function deleteProduc (i) {
+      const car = JSON.parse(localStorage.getItem("Carrito"));
+      console.log(car)
+      // console.log(i)
+      
+      let position = i = car[i+1]
+      console.log(position)
+      
+      car.splice(position, 1)
+      console.log(car)
+      // let idUser = JSON.parse(localStorage.getItem("idUser"));
+      
+      localStorage.setItem("Carrito", JSON.stringify(car));
+      
+      
+      
+    }
    
     useEffect(()=>{
         if(dataProducs){
@@ -28,7 +45,7 @@ function ContShopCar(props) {
         
         const element = car[i][1];
         idProducs.push(element)
-        console.log(idProducs)
+        console.log(props.id)
         
     
     }
@@ -37,6 +54,15 @@ function ContShopCar(props) {
     //     return idProducs.indexOf(item) === index;
     //   })
     //   console.log(result); //[1,2,6,5,9,'33']
+    for (let i = 1; i < car.length; i++) {
+        
+        
+      const element = car[i][0];
+      typeProducs.push(element)
+      console.log(typeProducs)
+      
+  
+  }
 
       const requestOptions = {
         method: "POST",
@@ -66,8 +92,13 @@ function ContShopCar(props) {
             </div>
             <div className="producto_footer">
                 <h1 className="producName" id={i}>{producto.Nombre}</h1>
-               
+                {/* <p className="producName" id={i}>{typeProducs[1]}</p> */}
+
+                
                 <p className="price">{producto.Precio}</p>
+                <button  className = "btn" onClick={() => deleteProduc(i)} id = {i} >
+                Eliminar del carrito
+            </button>
             </div>
             
             </div>

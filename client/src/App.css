@@ -490,9 +490,18 @@
     display: block;
     margin-left: 9.5rem;
 }
+.btnA:active{
+    background-color: black;
+    color: #c7c2c2;
+}
+
 .btnAb{
     display: block;
     margin-left: 3rem;
+}
+.btnAb:active{
+    background-color: black;
+    color: #c7c2c2;
 }
 #añadirBtnb { 
     margin-bottom: 2rem;
@@ -772,12 +781,15 @@ margin-left: 45rem;
 .contenedorRegis {
     display: none;
 }
-
+.passRec {
+    margin: 0;
+}
 
 .acountCreate {
+    margin-left: 15rem;
     box-sizing: border-box;
     position: absolute;
-    width: 1017px;
+    width: 750px;
     height: 808px;
     left: 201px;
     top: 102px;
@@ -1318,6 +1330,23 @@ margin-left: 45rem;
     top: 97px;
     border-radius: 24px;
 }
+.recPass{
+background-color:  #c7c2c2; 
+                 width: 30rem; 
+                 height: 20rem; 
+                 margin: auto;
+                 margin-top: 10rem;
+                 border-radius: 10%;
+                 
+}
+.recPassText{
+    
+    font-family: 'Poppins', sans-serif;
+}
+.textRecPass{
+    margin:0;
+}
+
 .contenedorCar{
     display: inline;
     background-color: #c7c2c2;
@@ -1486,7 +1515,7 @@ margin-left: 45rem;
     width: 342px;
     height: 56px;
     background: white;  
-    opacity: 0.25;
+    opacity: 0.70;
     border-radius: 40px;
     flex: none;
     order: 1;

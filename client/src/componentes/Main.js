@@ -6,6 +6,8 @@ import HomeUserLog from "./HomeUserLog";
 import Producs from "./Producs" 
 import ShopCarView from "./shopCarView";
 import  Checkout  from "./checkout";
+import RecuperarPass from "./recuperarPass";
+import RecuperarPassB from "./recuperarPass2";
 
 
 
@@ -20,10 +22,8 @@ class Main extends Component {
             <Route path="/homeUserLog" element={<HomeUserLog />} />
             <Route path="/shopCarView" element={<ShopCarView />} />
             <Route path="/checkout" element={<Checkout/>} />
-
-
-
-
+            <Route path="/recPass" element={<RecuperarPass/>}/>
+            <Route path='/recoveryReset/:email/:token' element={<RecuperarPassB/>}/>
             </Routes>
         </div>
         );

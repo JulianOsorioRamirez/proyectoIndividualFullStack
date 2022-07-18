@@ -10,7 +10,7 @@ function ContRegis () {
         const [sendPassConf, setDataToConfPass] = useState("");
         const [sendNumber, setDataToNumber] = useState("");
         // const[sendIdProduc, setDataToIdProduc] = useState("");
-        const[messageError, setMessegeError] = useState("");
+        const[state, setState] = useState("");
         
         
 
@@ -31,6 +31,16 @@ function ContRegis () {
     
         fetch("registro", requestOptions)
           .then((response) => response.json())
+          .then((res)=> setState(res))
+          if(state === true){
+            console.log(state)
+            let test = document.getElementById('contenedorRegis');
+            if (test.style.display == 'block') {
+          test.style.display = 'none';
+          } else {
+          test.style.display = 'block'
+          }
+          }
           
               
             
@@ -47,7 +57,7 @@ function ContRegis () {
                     <form className="acout" action="/registro" method="post">
                         <div className="nameSurnameBox">
                             <div className="nameBox">
-                              <p>{messageError}</p>
+                              <p>{state}</p>
                                 <p className="nameText"> Nombre</p><input className="name" id="name" onChange={(e) => setDataToName(e.target.value)} type="text" name="name" required="" />
                             </div>
                             <div className="surnameBox">

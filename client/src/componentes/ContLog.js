@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from "react";
 import {useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
+
 
 function ContLog () {
     const [sendEmailLog, setDataToEmailLog] = useState("");
@@ -51,6 +53,9 @@ function ContLog () {
             <div className="inpBu" action="/login" method="post">
             <input className="userLog" id="userLog" onChange={(e) => setDataToEmailLog(e.target.value)}  type="text" name="userLog" placeholder="Introduce tu Email" required="" />
             <input className="passLog" onChange={(e) => setDataToPassLog(e.target.value)} id="passLog" type="password" name="passLog" placeholder="Introduce tu contraseña" required="" />
+            <div id="passRec" >
+            <Link to={"/recPass"}>Recuperar Contraseña</Link>
+            </div>
             <input className="botonLog" onClick={() => LogData()} id="botonLog" type="button" value="Acceder" />
             </div>
         </div>
