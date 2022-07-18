@@ -49,10 +49,10 @@ function Tarjeta() {
         //   console.log(result);
            
          let finalPrice = total.reduce((a, b) => a + b, 0);
-         setDataPrice(finalPrice)
+         setDataPrice(finalPrice / 2)
 
         console.log(finalPrice);
-
+        
     },[])
     
 
@@ -90,12 +90,19 @@ function Tarjeta() {
             }
             );
             if(resState === true){
-              
+                const car = JSON.parse(localStorage.getItem("Carrito"));
+                
+                console.log(car)
+                localStorage.removeItem(car);
+                let carrito = []
+                localStorage.setItem("Carrito", JSON.stringify(carrito));
+                
+                // window.location.reload()
                 
               
             }
             // navigate("/ComRealizada");
-           
+           console.log(resState)
     };
 
 
@@ -120,7 +127,7 @@ function Tarjeta() {
                     <div className="row ">
                         <div className="col-md-3 col-sm-3 col-xs-3">
                             {/* <span class="help-block text-muted small-font" > Expiry Month</span> */}
-                            <Form.Control type="text" class="form-control" placeholder="MM" onChange={(e) => setMonth(e.target.value)} />
+                            <Form.Control type="text" className="form-control" placeholder="MM" onChange={(e) => setMonth(e.target.value)} />
                         </div>
                         <div className="col-md-3 col-sm-3 col-xs-3">
                             {/* <span className="help-block text-muted small-font" >  Expiry Year</span> */}
@@ -146,7 +153,7 @@ function Tarjeta() {
                     <div className="row ">
                         
                         <div className="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                            <Form.Control type="submit" className="btn btn-warning btn-block" value="PAY NOW" onClick={() => sendData()}  />
+                            <Form.Control type="button" className="btn btn-warning btn-block" value="PAY NOW" onClick={() => sendData()}  />
                         </div>
                     </div>
 
