@@ -33,15 +33,15 @@ function ContShopCar(props) {
     
     }
     
-    let result = idProducs.filter((item,index)=>{
-        return idProducs.indexOf(item) === index;
-      })
-      console.log(result); //[1,2,6,5,9,'33']
+    // let result = idProducs.filter((item,index)=>{
+    //     return idProducs.indexOf(item) === index;
+    //   })
+    //   console.log(result); //[1,2,6,5,9,'33']
 
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({id: result,
+        body: JSON.stringify({id: idProducs,
                               })
       };
   
@@ -53,6 +53,8 @@ function ContShopCar(props) {
     return(
         <div>
           <h1 className="titleCarShop">Carrito De Compras</h1>
+          
+
 <div className="allProductsContCar">
 {dataProducs ? dataProducs.map((producto,i)=> <div className="contCarShop" key={i}>
            

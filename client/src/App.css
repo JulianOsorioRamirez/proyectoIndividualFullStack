@@ -44,6 +44,15 @@
     font-family: 'The Nautigal', cursive;
     margin: 0 ;
 }
+.titleCarCredit2{
+    font-size: 2.4rem;
+    font-size: 100px;
+    padding: 0 0 0 0;
+    color: whitesmoke;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+    margin: 0 ;
+}
 .allProductsCont {
     margin:0;
     display: flex;
@@ -420,7 +429,8 @@
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(138,221,45,0);
+    color: white;
     
 }
 .formulario {
@@ -1497,6 +1507,7 @@ margin-left: 45rem;
     margin-top: 3.5rem;
     
 }
+
 
 
 

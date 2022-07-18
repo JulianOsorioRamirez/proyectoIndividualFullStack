@@ -13,8 +13,13 @@ function Tarjeta() {
     const [YearSend, setYear] = useState('');
     const [CCVSend, setCCV] = useState('');
     const [nameTarjetaSend, setTarjeta] = useState('');
+    const [totalPrice, setDataPrice] = useState('');
+    const [resState, setDataState] = useState('');
+
+
     const idUser = JSON.parse(localStorage.getItem('idUser'));
     console.log(idUser)
+    const total = []
     // const prueba = JSON.parse(localStorage.getItem('prueba')).prueba;
     // console.log(prueba)
     
@@ -22,9 +27,37 @@ function Tarjeta() {
       console.log(nTarjetaSend)
     },[nTarjetaSend])
 
+    useEffect(() => {
+        const car = JSON.parse(localStorage.getItem("Carrito"));
+    
+       
+       
+        for (let i = 1; i < car.length; i++) {
+         
+         
+         const element = parseInt(car[i][2].replace('€' , ''));
+         ;
+         total.push(element)
+         console.log(total)
+         }
+    },[])
 
+    useEffect(()=>{
+        // let result = total.filter((item,index)=>{
+        //     return total.indexOf(item) === index;
+        //   })
+        //   console.log(result);
+           
+         let finalPrice = total.reduce((a, b) => a + b, 0);
+         setDataPrice(finalPrice)
+
+        console.log(finalPrice);
+
+    },[])
+    
 
     const sendData = () => {
+        
         
         const reaquestOptions = {
             method: 'POST',
@@ -36,7 +69,8 @@ function Tarjeta() {
                 Month: MonthSend,
                 Year: YearSend,
                 CCV: CCVSend,
-                nameTarjeta: nameTarjetaSend
+                nameTarjeta: nameTarjetaSend,
+                totalPrice : totalPrice
             })
         };
         // fetch('eventosUsuarios', reaquestOptions)
@@ -47,14 +81,19 @@ function Tarjeta() {
         //         console.log(err);
         //     });
 
-        fetch("tarjeta", reaquestOptions)
+        fetch("insertShopCar", reaquestOptions)
             .then(res => res.json())
             .then(res => {
-                console.log(res);
+                setDataState(res);
             }).catch(err => {
                 console.log(err)
             }
             );
+            if(resState === true){
+              
+                
+              
+            }
             // navigate("/ComRealizada");
            
     };
@@ -62,12 +101,14 @@ function Tarjeta() {
 
     return (
         <div>
-          <h1 className="titleCarCredit">Finalizar Compra</h1>
-          <div className="btnsCarShop">
+          {resState === true ? <h1 className="titleCarCredit">Compra Finalizada</h1> : <h1 className="titleCarCredit">Finalizar Compra</h1>}
+          {resState === false ? <h2 className="titleCarCredit2">Datos de tarjeta incorrectos</h2> : <h2 className="titleCarCredit2">Total: {totalPrice + "€"}</h2>}
+
+          <div className="btnsCarShop2">
             <button className="botonCarShop" ><Link to={"/producs"}>Seguir Comprando</Link></button>
             <button className="botonCarShop" ><Link to={"/shopCarView"}>Ver carrito</Link></button>
         </div>
-          <Form action="#" className='credit-card-div'>
+          <Form action="#" id="creditContCard" className='credit-card-div'>
             <div className="panel panel-default" >
                 <div className="panel-heading">
 
@@ -87,7 +128,7 @@ function Tarjeta() {
                         </div>
                         <div className="col-md-3 col-sm-3 col-xs-3">
                             {/* <span className="help-block text-muted small-font" >  CCV</span> */}
-                            <Form.Control type="text" className="form-control" placeholder="CCV" onChange={(e) => setCCV(e.target.value)} />
+                            <Form.Control type="password" className="form-control" placeholder="CCV" onChange={(e) => setCCV(e.target.value)} />
                         </div>
                         <div className="col-md-3 col-sm-3 col-xs-3">
                             <img src={TarjetaC} className="img-rounded" />
