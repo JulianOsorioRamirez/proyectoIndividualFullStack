@@ -26,6 +26,15 @@
     font-family: 'The Nautigal', cursive;
     margin: 0 ;
 }
+.titleH {
+    font-size: 2.4rem;
+    font-size: 100px;
+    padding: 0 0 0 0;
+    color: whitesmoke;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+    margin: 0 ;
+}
 .titleCarShop{
     font-size: 2.4rem;
     font-size: 100px;
@@ -103,6 +112,22 @@
 .producto_footer{
     padding: 1rem;
 }
+.producto_footerH h2{
+    font-weight: 600;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+.producto_footerH h1{
+    font-weight: 600;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+.producto_footerH p{
+    font-weight: 600;
+    font-size: 1rem;
+    color: whitesmoke;
+}
+
 .producto_footer h1 {
     font-weight: 600;
     font-size: 3rem;
@@ -419,6 +444,13 @@
                  margin-top: 2rem;
                  border-radius: 10%;
                 }
+                .credit-card-div2{background-image: url("https://p4.wallpaperbetter.com/wallpaper/404/355/659/concrete-texture-dark-background-abstract-hd-wallpaper-preview.jpg"); 
+                    width: 50rem; 
+                    height: 30rem; 
+                    margin: auto;
+                    margin-top: 10rem;
+                    border-radius: 10%;
+                   }
 .credit-card-div  span { padding-top:10px; color: white; ;}
 .credit-card-div img { padding-top:30px; }
 .credit-card-div .small-font { font-size:9px; }
@@ -460,6 +492,9 @@
 }
 .producto_footer .price{
     font-size: 2rem;
+}
+.priceH{
+    font-size: 5rem;
 }
 .App-header {
   background-color: #282c34;
@@ -546,7 +581,7 @@
     flex-grow: 0;
 }
 
-#shopBtn, #logOutBtn{
+#shopBtn, #logOutBtn,#logOutBtnH{
     /* margin-top: rem; */
     box-sizing: border-box;
     background-color:#c7c2c2;

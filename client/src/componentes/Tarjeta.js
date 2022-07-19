@@ -58,6 +58,7 @@ function Tarjeta() {
 
     const sendData = () => {
         
+        const car = JSON.parse(localStorage.getItem("Carrito"))
         
         const reaquestOptions = {
             method: 'POST',
@@ -70,7 +71,8 @@ function Tarjeta() {
                 Year: YearSend,
                 CCV: CCVSend,
                 nameTarjeta: nameTarjetaSend,
-                totalPrice : totalPrice
+                totalPrice : totalPrice,
+                car: car
             })
         };
         // fetch('eventosUsuarios', reaquestOptions)
@@ -98,8 +100,6 @@ function Tarjeta() {
                 localStorage.setItem("Carrito", JSON.stringify(carrito));
                 
                 // window.location.reload()
-                
-              
             }
             // navigate("/ComRealizada");
            console.log(resState)

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import {Link} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 function NavHome () {
-    
+  
     const mostrar = () => {
       
         let test = document.getElementById('contenedorRegis');
@@ -47,6 +47,8 @@ function NavHome () {
                  <div className="barra">
                  {localStorage.getItem('idUser') ? "" : <input className="log" onClick={() => mostrar1()} id="log"  type="submit"  value="Acceder" />}
                  {localStorage.getItem('idUser') ? <button id="logOutBtn" onClick={() => LogOut()}>logOut</button> : <input className="sing" onClick={() => mostrar()} id="sing" type="submit" value="Registrarse" />}
+                 {localStorage.getItem('idUser') ? <button id="logOutBtnH" className="btnH" ><Link to={"/historial"}>Historial</Link></button> : "" }
+                      
                 </div>
             </div>
         </nav>

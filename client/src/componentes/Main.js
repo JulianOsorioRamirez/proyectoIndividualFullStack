@@ -8,6 +8,7 @@ import ShopCarView from "./shopCarView";
 import  Checkout  from "./checkout";
 import RecuperarPass from "./recuperarPass";
 import RecuperarPassB from "./recuperarPass2";
+import Historial from "./Historial";
 
 
 
@@ -24,6 +25,9 @@ class Main extends Component {
             <Route path="/checkout" element={<Checkout/>} />
             <Route path="/recPass" element={<RecuperarPass/>}/>
             <Route path='/recoveryReset/:email/:token' element={<RecuperarPassB/>}/>
+            <Route path='/historial' element={<Historial/>}/>
+
+
             </Routes>
         </div>
         );

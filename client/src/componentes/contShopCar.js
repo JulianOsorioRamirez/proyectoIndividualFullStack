@@ -15,17 +15,15 @@ function ContShopCar(props) {
       console.log(car)
       // console.log(i)
       
-      let position = i = car[i+1]
-      console.log(position)
+      // let position = i = car[i+1]
+      // console.log(position)
       
-      car.splice(position, 1)
+      car.splice(i + 1, 1)
       console.log(car)
       // let idUser = JSON.parse(localStorage.getItem("idUser"));
       
       localStorage.setItem("Carrito", JSON.stringify(car));
-      
-      
-      
+      window.location.reload()
     }
    
     useEffect(()=>{
@@ -96,7 +94,7 @@ function ContShopCar(props) {
 
                 
                 <p className="price">{producto.Precio}</p>
-                <button  className = "btn" onClick={() => deleteProduc(i)} id = {i} >
+                <button  className = "btn" onClick={() => deleteProduc(i)} id = {i}>
                 Eliminar del carrito
             </button>
             </div>
