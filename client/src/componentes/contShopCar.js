@@ -13,11 +13,6 @@ function ContShopCar(props) {
     function deleteProduc (i) {
       const car = JSON.parse(localStorage.getItem("Carrito"));
       console.log(car)
-      // console.log(i)
-      
-      // let position = i = car[i+1]
-      // console.log(position)
-      
       car.splice(i + 1, 1)
       console.log(car)
       // let idUser = JSON.parse(localStorage.getItem("idUser"));
@@ -48,10 +43,7 @@ function ContShopCar(props) {
     
     }
     
-    // let result = idProducs.filter((item,index)=>{
-    //     return idProducs.indexOf(item) === index;
-    //   })
-    //   console.log(result); //[1,2,6,5,9,'33']
+    
     for (let i = 1; i < car.length; i++) {
         
         
@@ -61,6 +53,10 @@ function ContShopCar(props) {
       
   
   }
+  let result = typeProducs.filter((item,index)=>{
+    return typeProducs.indexOf(item) === index;
+  })
+  setDataProducs(result); //[1,2,6,5,9,'33']
 
       const requestOptions = {
         method: "POST",
@@ -90,7 +86,7 @@ function ContShopCar(props) {
             </div>
             <div className="producto_footer">
                 <h1 className="producName" id={i}>{producto.Nombre}</h1>
-                {/* <p className="producName" id={i}>{typeProducs[1]}</p> */}
+                {/* <p className="producName" id={i}></p> */}
 
                 
                 <p className="price">{producto.Precio}</p>
@@ -108,10 +104,7 @@ function ContShopCar(props) {
     </div>
 </div>
        
-          
-         
-        
-    );
+      );
     
 }
 

@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import TarjetaC from '../images/chip-tarjeta.png'
 import { useNavigate,useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { remove } from 'moongose/models/user_model';
 
 function Tarjeta() {
     const navigate = useNavigate();
@@ -75,14 +76,7 @@ function Tarjeta() {
                 car: car
             })
         };
-        // fetch('eventosUsuarios', reaquestOptions)
-        //     .then(res => res.json())
-        //     .then(res => {
-        //         console.log(res);
-        //     }).catch(err => {
-        //         console.log(err);
-        //     });
-
+       
         fetch("insertShopCar", reaquestOptions)
             .then(res => res.json())
             .then(res => {
@@ -92,10 +86,10 @@ function Tarjeta() {
             }
             );
             if(resState === true){
-                const car = JSON.parse(localStorage.getItem("Carrito"));
                 
-                console.log(car)
-                localStorage.removeItem("Carrito");
+                
+                console.log("a borrar")
+                localStorage.removeItem("Carrito")
                 let carrito = []
                 localStorage.setItem("Carrito", JSON.stringify(carrito));
                 

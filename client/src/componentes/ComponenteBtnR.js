@@ -16,11 +16,7 @@ function BtnsR (props) {
     useEffect(() => {
        console.log(talla)
     },[talla])
-    // useEffect(() => {
-    //    let idUser = JSON.parse(localStorage.getItem("idUser"));
-    //     // console.log(idUser)
-    // }, []);
-
+   
     function ShopCar () {
         let idUser = JSON.parse(localStorage.getItem("idUser"));
       

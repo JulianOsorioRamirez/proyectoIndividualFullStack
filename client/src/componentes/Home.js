@@ -12,19 +12,6 @@ import TextHome from "./SectionTextHome";
 
 
 function Home() {
-  // const [message, setMessage] = useState("");
-  
-  // const [sendName, setDataToName] = useState("");
-  // const [sendUnName, setDataToUname] = useState("");
-  // const [sendDni, setDataToDni] = useState("");
-  // const [sendEmail, setDataToEmail] = useState("");
-  // const [sendPass, setDataToPass] = useState("");
-  // const [sendPassConf, setDataToConfPass] = useState("");
-  // const [sendNumber, setDataToNumber] = useState("");
-  // const [sendEmailLog, setDataToEmailLog] = useState("");
-  // const [sendPassLog, setDataToPassLog] = useState("");
-  // const [sendIdUser, setDataIdUser] = useState("");
-   
   
    return (
     <div className="Home">

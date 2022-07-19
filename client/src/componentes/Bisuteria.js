@@ -1,15 +1,5 @@
 import React, { useState,useEffect } from "react";
 import BtnsB from "./ComponenteBtnsB" 
-
-// import IMG from "../componentes/images/aros trenzados.png"
-// import IMG2 from "../componentes/images/arosBrillantes.png"
-// import IMG3 from "../componentes/images/cadenas.png"
-// import IMG4 from "../componentes/images/corazones.png"
-// import IMG5 from "../componentes/images/cruz.png"
-// import IMG6 from "../componentes/images/guanteDeBox.png"
-// import IMG7 from "../componentes/images/manoDeFatima.png"
-// import IMG8 from "../componentes/images/selloAzteca.png"
-// import IMG9 from "../componentes/images/selloManoDeFatima.png"
 import logo from "../images/dobermanLOGO.jpg"
 import {Link} from "react-router-dom"
 // import React, { useState } from "react";
@@ -31,16 +21,7 @@ useEffect(()=>{
     }
 },[sendIdProducB]);
  
-
-//   useEffect(() => {
-//     let infoLocal = JSON.parse(localStorage.getItem("CarritoDeCompra"))
-//     console.log(infoLocal)
-//     console.log(sendIdProduc)
-//     infoLocal[0].Producto = sendIdProduc.productId
-//     infoLocal[0].Precio = sendIdProduc.productPrice
-//     localStorage.setItem("CarritoDeCompra",JSON.stringify(infoLocal))
-// }, [sendIdProduc]);
-  const LogData = () => {
+const LogData = () => {
     console.log(sendEmailLog);
     console.log(sendPassLog);
     const requestOptions = {
@@ -111,7 +92,6 @@ useEffect(()=>{
                </button>
                
                <div>
-                {/* <a href="#"></a> */}
                </div>
              </div>
             </div>

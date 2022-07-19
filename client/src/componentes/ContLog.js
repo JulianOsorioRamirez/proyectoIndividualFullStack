@@ -33,12 +33,6 @@ function ContLog () {
             localStorage.setItem("idUser",sendIdUser );
             let car = []
             localStorage.setItem("Carrito", JSON.stringify(car));
-            
-
-            
-            
-            
-
           }
           
       }  

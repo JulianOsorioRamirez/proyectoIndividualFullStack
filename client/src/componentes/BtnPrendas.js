@@ -17,15 +17,6 @@ function BtnPrenda(props) {
     title.setName(typeView)
     })
     
-
-  // useEffect(()=>{
-    
-  // },[typeView])
-
-
-  
-  
-
   return (
     
     <div>

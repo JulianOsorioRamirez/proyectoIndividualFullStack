@@ -35,17 +35,3 @@ class Main extends Component {
 }
 export default Main;
 
-
-// function Main () {
-//     return (
-//         <div>
-//             <Routes>
-//                 <Route path="/" element={< Home/>} />
-//                 <Route path="/producs" element={<Producs />} />
-//                 <Route path="/bisuteria" element={<Bisuteria />} />
-
-//             </Routes>
-//         </div>
-//         );
-// }
-// export default Main;

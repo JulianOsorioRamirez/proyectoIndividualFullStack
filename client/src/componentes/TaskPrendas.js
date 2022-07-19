@@ -12,22 +12,13 @@ function TaskPrendas (id) {
     const[sendIdProduc, setDataToIdProduc] = useState("");
     const sendIdProducs = sendIdProduc.length - 10
     const EstadoPrendas = useContext(PrendasContext)
-    // useEffect(() =>{
-    //   // console.log(EstadoPrendas.name)
-    // })
-
+   
     useEffect(() => {
         fetch("serchIdProduc")
         .then((response) => response.json())
         .then((res)=> setDataToIdProduc(res))
         
     }, []);
-    // useEffect(()=>{
-    //     if(sendIdProduc){
-    //       console.log(sendIdProduc.id)
-    //     }
-    // },[sendIdProduc]);
-
     useEffect(() => {
         fetch("serchIdProducB")
         .then((response) => response.json())
