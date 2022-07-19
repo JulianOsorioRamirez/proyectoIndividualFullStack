@@ -23,7 +23,7 @@ function RecuperarPassB () {
           };
           console.log(requestOptions);
       
-          fetch("confirmuserCheck", requestOptions)
+          fetch("/confirmuserCheck", requestOptions)
             .then((response) => response.json())
             .then((res) => console.log(res))
     }
