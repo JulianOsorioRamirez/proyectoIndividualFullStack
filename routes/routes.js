@@ -14,9 +14,4 @@ router.post("/serchIdProducB",user.serchIdProducB);
 router.get("/productsHistory",user.productsHistory);
 
 
-
-
-
-
-
 module.exports = router;
