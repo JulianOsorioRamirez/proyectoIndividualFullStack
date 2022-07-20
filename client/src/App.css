@@ -1,0 +1,1320 @@
+@import url('https://fonts.googleapis.com/css2?family=Splash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Splash&family=The+Nautigal&display=swap');
+.App{
+   
+    text-align: center;
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+/* titulos, productos y botones */
+.title {
+    font-size: 2.4rem;
+    font-size: 100px;
+    padding: 10rem 0 0 0;
+    color: whitesmoke;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+    margin: 0 ;
+}
+.titleH {
+    font-size: 2.4rem;
+    font-size: 100px;
+    padding: 0 0 0 0;
+    color: whitesmoke;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+    margin: 0 ;
+}
+.titleCarShop{
+    font-size: 2.4rem;
+    font-size: 100px;
+    padding: 5rem 0 2rem 0;
+    color: whitesmoke;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+    margin: 0 ;
+}
+.titleCarCredit{
+    font-size: 2.4rem;
+    font-size: 100px;
+    padding: 5rem 0 0 0;
+    color: whitesmoke;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+    margin: 0 ;
+}
+.titleCarCredit2{
+    font-size: 2.4rem;
+    font-size: 100px;
+    padding: 0 0 0 0;
+    color: whitesmoke;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+    margin: 0 ;
+}
+.allProductsCont {
+    margin:0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* width: 70re; */
+}
+.allProductsContCar{
+    
+    width: 50rem;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.2);
+    border: 6px solid transparent;
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+}
+.productos {
+    /* width: 70px; */
+    padding: 5rem 2rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 3rem 1rem;
+    box-sizing: border-box;
+    
+}
+.producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.2);
+    border: 6px solid transparent;
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+}
+.producto:hover{
+    border: 6px solid white
+}
+.producto_img img{
+    margin-top: 1rem;
+    width: 180px;
+    height: 180px;
+}
+.producto_footer{
+    padding: 1rem;
+}
+.producto_footerH h2{
+    font-weight: 600;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+.producto_footerH h1{
+    font-weight: 600;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+.producto_footerH p{
+    font-weight: 600;
+    font-size: 1rem;
+    color: whitesmoke;
+}
+
+.producto_footer h1 {
+    font-weight: 600;
+    font-size: 3rem;
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Splash', cursive;
+    font-family: 'The Nautigal', cursive;
+}
+.contCarShop{
+    width: 25rem;
+    flex-direction: row-reverse;
+    padding: 5rem 2rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 3rem 1rem;
+    box-sizing: border-box;
+}
+.productoCar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
+    box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.2);
+    border: 6px solid transparent;
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+}
+.producto_imgCar img{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 180px;
+    height: 180px;
+}
+.productoCar:hover{
+    border: 6px solid white
+}
+.producto_footer p {
+    font-weight: 700;
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.tarjeta {
+	width: 100%;
+	max-width: 550px;
+	position: relative;
+	color: #fff;
+	transition: .3s ease all;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.tarjeta.active {
+	transform: rotateY(180deg);
+}
+
+.tarjeta > div {
+	padding: 30px;
+	border-radius: 15px;
+	min-height: 315px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 10px 10px 0 rgba(90,116,148,0.3);
+}
+/* ---------- Formulario Tarjeta ----------*/
+.formulario-tarjeta {
+	background: #fff;
+	width: 100%;
+	max-width: 700px;
+	padding: 150px 30px 30px 30px;
+	border-radius: 10px;
+	position: relative;
+	top: -150px;
+	z-index: 1;
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	transition: clip-path .3s ease-out;
+}
+
+.formulario-tarjeta.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.formulario-tarjeta label {
+	display: block;
+	color: #7d8994;
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+
+.formulario-tarjeta input,
+.formulario-tarjeta select,
+.btn-enviar {
+	border: 2px solid #CED6E0;
+	font-size: 18px;
+	height: 50px;
+	width: 100%;
+	padding: 5px 12px;
+	transition: .3s ease all;
+	border-radius: 5px;
+}
+
+.formulario-tarjeta input:hover,
+.formulario-tarjeta select:hover {
+	border: 2px solid #93BDED;
+}
+
+.formulario-tarjeta input:focus,
+.formulario-tarjeta select:focus {
+	outline: rgb(4,4,4);
+	box-shadow: 1px 7px 10px -5px rgba(90,116,148,0.3);
+}
+
+.formulario-tarjeta input {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.formulario-tarjeta .flexbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.formulario-tarjeta .expira {
+	width: 100%;
+}
+
+.formulario-tarjeta .ccv {
+	min-width: 100px;
+}
+
+.formulario-tarjeta .grupo-select {
+	width: 100%;
+	margin-right: 15px;
+	position: relative;
+}
+
+.formulario-tarjeta select {
+	-webkit-appearance: none;
+}
+
+.formulario-tarjeta .grupo-select i {
+	position: absolute;
+	color: #CED6E0;
+	top: 18px;
+	right: 15px;
+	transition: .3s ease all;
+}
+
+.formulario-tarjeta .grupo-select:hover i {
+	color: #93bfed;
+}
+
+.formulario-tarjeta .btn-enviar {
+	border: none;
+	padding: 10px;
+	font-size: 22px;
+	color: #fff;
+	background: #2364d2;
+	box-shadow: 2px 2px 10px 0px rgba(0,85,212,0.4);
+	cursor: pointer;
+}
+.credit-card-div{background-image: url("https://p4.wallpaperbetter.com/wallpaper/404/355/659/concrete-texture-dark-background-abstract-hd-wallpaper-preview.jpg"); 
+                 width: 50rem; 
+                 height: 30rem; 
+                 margin: auto;
+                 margin-top: 2rem;
+                 border-radius: 10%;
+                }
+                .credit-card-div2{background-image: url("https://p4.wallpaperbetter.com/wallpaper/404/355/659/concrete-texture-dark-background-abstract-hd-wallpaper-preview.jpg"); 
+                    width: 50rem; 
+                    height: 30rem; 
+                    margin: auto;
+                    margin-top: 10rem;
+                    border-radius: 10%;
+                   }
+.credit-card-div  span { padding-top:10px; color: white; ;}
+.credit-card-div img { padding-top:30px; }
+.credit-card-div .small-font { font-size:9px; }
+.credit-card-div .pad-adjust { padding-top:10px; }
+.img-rounded { width:42px; }
+.form-control{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: rgba(138,221,45,0);
+    color: white;
+    
+}
+.formulario {
+    background: rgba(0, 0, 0, .4);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    width: 700px;
+    height: 520px;
+    margin-left: 430px;
+    margin-top: 50px;
+}
+.formulario h4 {
+     font-size: 70px;
+     color: aliceblue;
+     font-family: 'Ballet', cursive;
+     font-family: 'Ms Madi', cursive;
+     text-align: center;
+}
+
+.formulario-tarjeta .btn-enviar:hover {
+	background: #1850b1;
+}
+.producto .buttom{
+   width: 100%;
+   height: 45px;
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+}
+.producto_footer .price{
+    font-size: 2rem;
+}
+.priceH{
+    font-size: 5rem;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.btn, .btnA ,.btnAb{
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+.btnA{
+    display: block;
+    margin-left: 9.5rem;
+}
+.btnA:active{
+    background-color: black;
+    color: #c7c2c2;
+}
+
+.btnAb{
+    display: block;
+    margin-left: 3rem;
+}
+.btnAb:active{
+    background-color: black;
+    color: #c7c2c2;
+}
+#añadirBtnb { 
+    margin-bottom: 2rem;
+}
+
+.btn:active , #homeBtn{
+    background-color: black;
+    color: #c7c2c2;
+}
+
+#añadirBtn {
+    width: 25rem;
+}
+#prenView{
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+    text-decoration: none;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+#homeBtn{
+    margin-top: 1rem;
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+    text-decoration: none;
+    width: 98px;
+    height: 40px;
+    margin-right: 6rem;
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+
+#shopBtn, #logOutBtn,#logOutBtnH{
+    /* margin-top: rem; */
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+    text-decoration: none;
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(https://img.freepik.com/foto-gratis/marmol-negro-textura-fondo-textura-marmol-tailandia-marmol-natural-abstracto-blanco-negro-diseno_1253-917.jpg?t=st=1656775987~exp=1656776587~hmac=643085256c3adeab5483c43c7461457c406c2b50d4f14e1950edac461082a62c&w=1060);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+.logoHome{
+    width: 30rem;
+    border: 5px solid gray;
+}
+
+/*TODO                        empiezo nav */
+.nav {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 73px;
+    left: 0px;
+    top: 0px;
+    background: #484848;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.25);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between
+    
+}
+.logo{
+  width: 200px;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4.5px;
+}
+.divLogo {
+    margin-left: 5rem;
+}
+.divShop {
+margin-top: 1rem;
+margin-left: 45rem;
+}
+.divLogin {
+    margin-right: 5rem;
+    margin-top: 1rem;
+}
+.divLogOut{
+    box-sizing: border-box;
+    background-color: #c7c2c2;
+    text-decoration: none;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    flex: inline 1;
+    order: 2;
+    flex-grow: 0;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+.home {
+    color: #C3C3C3;
+    margin-left: 25px;
+}
+
+.home:hover {
+    /* background-color: #111111; */
+    color: #111111;
+}
+.busqueda {
+    color: #C3C3C3;
+    position: relative;
+    bottom: 49px;
+    left: 365px;
+}
+
+.login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra {
+    /* Login / sign up */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+
+    position: absolute;
+    width: 327px;
+    height: 40px;
+    right: 40px;
+    top: calc(50% - 40px/2 + 0.5px);
+}
+.log {
+    /* Button */
+
+    box-sizing: border-box;
+    background-color:#c7c2c2;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: inline;
+    order: 2;
+    flex-grow: 0;
+
+}
+
+.log:active {
+    background-color: black;
+    color: #c7c2c2;
+}
+
+
+.sing {
+    /* Button */
+
+    box-sizing: border-box;
+    background-color: #c7c2c2;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+}
+
+.sing:active {
+    background-color: black;
+    color: #FFFFFF;
+}
+
+/*TODO                   termino nav */
+
+
+
+/*TODO                   empiezo registro */
+
+.contenedorRegis {
+    display: none;
+}
+.passRec {
+    margin: 0;
+}
+
+.acountCreate {
+    margin-left: 15rem;
+    box-sizing: border-box;
+    position: absolute;
+    width: 750px;
+    height: 808px;
+    left: 201px;
+    top: 102px;
+    background: #c7c2c2;
+    border: 1px solid rgba(102, 102, 102, 0.5);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 0px; */
+    gap: 69px;
+    /* width: 534px; */
+    /* height: 87px; */
+    /* flex: none; */
+    /* order: 0; */
+    /* flex-grow: 0; */
+    justify-content: center;
+    z-index: 1;
+
+}
+
+.acountBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+    /* flex: none; */
+    order: 0;
+    flex-grow: 0;
+}
+
+.acountContenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+
+    position: absolute;
+    width: 534px;
+    height: 722px;
+    left: 56px;
+    top: 56px;
+}
+
+.acountHead {
+    display: flex;
+    flex-direction: column;
+}
+
+.acountTextHead {
+    width: 304px;
+    height: 48px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #333333;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.acountTextHead2 {
+
+    width: 277px;
+    /* height: 24px; */
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-top: -20px;
+}
+
+.acout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+
+    width: 534px;
+    height: 500px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-top: -35px;
+}
+
+.nameSurnameBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.dniPhoneBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.passConfBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.nameText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.surnameText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.dniText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.phoneText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.emailText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.passText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.confPassText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.name {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.surname {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.dni {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.phone {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.email {
+    box-sizing: border-box;
+    width: 537px;
+    height: 56px;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.pass {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.passConf {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+
+.textVali {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.chec {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 8px 8px 0px;
+    gap: 8px;
+
+    width: 166px;
+    height: 40px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.checText {
+    width: 126px;
+    height: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-top: -1px;
+}
+
+.botonFormReg {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 229px;
+    width: 534px;
+    height: 87px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.botonReg {
+    position: absolute;
+    left: 275px;
+    right: 0px;
+    top: 658px;
+    bottom: 0px;
+    color: #FFFFFF;
+    background: #111111;
+    opacity: 0.25;
+    border-radius: 32px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+.botonReg:hover {background-color: #5e5e5e}
+
+.botonReg:active {
+  background-color: #6e6e6e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+/*TODO                      termino Registro */
+
+
+
+/*TODO                     Empiezo Texto del Home */
+.travel {
+    margin-top: 93px;
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 70px;
+    color: white;
+}
+.textCentral {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 114px;
+
+}
+.travelp {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin-top: -55px;
+    color: white;
+
+}
+/*TODO                     Fin Texto del Home */
+
+
+
+/*TODO                    Comienzo Log */
+
+.contLog {
+    display: none;
+    background-color: #c7c2c2;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+.recPass{
+background-color:  #c7c2c2; 
+                 width: 30rem; 
+                 height: 20rem; 
+                 margin: auto;
+                 margin-top: 10rem;
+                 border-radius: 10%;
+                 
+}
+.recPassText{
+    
+    font-family: 'Poppins', sans-serif;
+}
+.textRecPass{
+    margin:0;
+}
+
+.contenedorCar{
+    display: inline;
+    background-color: #c7c2c2;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+#contShopCar{
+    display: none;
+    background-color: #c7c2c2;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+.contLog2 {
+    display: none;
+    background-color: #c7c2c2;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+.contLogOpen {
+    display: inline;
+    background-color: #c7c2c2;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+
+.contLogBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+    position: absolute;
+    width: 342px;
+    height: 307px;
+    left: 37px;
+    top: -3px;
+}
+
+.logBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 2px;
+    line-height: 0px;
+    width: 293px;
+    height: 62px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logHTex {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    color: #333333;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logPText {
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 16px;
+
+    text-align: center;
+    color: rgba(102, 102, 102, 0.8);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.inpBu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 342px;
+    height: 128px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-top: -39px;
+}
+.userLog {
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    width: 342px;
+    height: 56px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+}
+
+.passLog {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    width: 342px;
+    height: 56px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+}
+
+.botonLog {
+    width: 342px;
+    height: 56px;
+    background: #111111;
+    opacity: 0.25;
+    border-radius: 40px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+.botonLog:hover {background-color: #818181}
+
+.botonLog:active {
+  background-color: #6d6d6d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.botonCarShop{
+    margin: 2rem;
+    width: 342px;
+    height: 56px;
+    background: white;  
+    opacity: 0.70;
+    border-radius: 40px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    border: none;
+    font-size: 20px;
+}
+.botonCarShop:hover {background-color: #818181}
+
+.botonLogShop:active {
+  background-color: #070000;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.btnsCarShop{
+    margin-top: 3.5rem;
+    
+}
+/*TODO                    Final Log *
+
+/*TODO                    Final DOBERMAN */
+
